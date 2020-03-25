@@ -1,0 +1,12 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="All tests suite">
+
+    <test name="Additive and multiplicative tests">
+        <classes>
+            <class name="hw1.CalculatorSumTest"></class>
+            <class name="hw1.CalculatorSubtractTest"></class>
+            <class name="hw1.CalculatorMultiplyTest"></class>
+            <class name="hw1.CalculatorDivideTest"></class>
+        </classes>
+    </test>
+</suite>
