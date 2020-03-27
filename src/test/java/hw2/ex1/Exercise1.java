@@ -5,8 +5,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.*;
 import org.testng.asserts.SoftAssert;
 
@@ -52,8 +50,7 @@ public class Exercise1 {
         driver.findElement(By.xpath("//input[@id='password']")).sendKeys("Jdi1234");
         driver.findElement(By.id("login-button")).click();
 
-        WebElement loginUserName = new WebDriverWait(driver,5)
-                .until(ExpectedConditions.presenceOfElementLocated(By.id("user-name")));
+        WebElement loginUserName = driver.findElement(By.id("user-name"));
 
         // 4. Assert Username is loggined
         sa.assertEquals(loginUserName.getText(), "ROMAN IOVLEV");
@@ -66,9 +63,8 @@ public class Exercise1 {
         SoftAssert sa = new SoftAssert();
 
         driver.get("https://jdi-testing.github.io/jdi-light/index.html");
-        List<WebElement> headerItems = new WebDriverWait(driver, 5)
-                .until(ExpectedConditions.presenceOfAllElementsLocatedBy(By
-                        .xpath("//ul[@class='uui-navigation nav navbar-nav m-l8']/li")));
+        List<WebElement> headerItems = driver.findElements(By
+                        .xpath("//ul[@class='uui-navigation nav navbar-nav m-l8']/li"));
         List<String> expectedHeaderItemsTexts = Arrays.asList("HOME", "CONTACT FORM", "SERVICE", "METALS & COLORS");
         List<String> actualHeaderItemsTexts = new ArrayList<>();
         for (WebElement element : headerItems) {
@@ -89,8 +85,7 @@ public class Exercise1 {
         SoftAssert sa = new SoftAssert();
 
         driver.get("https://jdi-testing.github.io/jdi-light/index.html");
-        List<WebElement> images = new WebDriverWait(driver, 5)
-                .until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.xpath("//div[@class='benefit-icon']/span")));
+        List<WebElement> images = driver.findElements(By.xpath("//div[@class='benefit-icon']/span"));
 
         for (WebElement element : images) {
             sa.assertTrue(element.isDisplayed());
@@ -106,8 +101,7 @@ public class Exercise1 {
 
         driver.get("https://jdi-testing.github.io/jdi-light/index.html");
 
-        List<WebElement> iconTexts = new WebDriverWait(driver, 5)
-                .until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.className("benefit-txt")));
+        List<WebElement> iconTexts = driver.findElements(By.className("benefit-txt"));
         List<String> expectedIconTexts = Arrays.asList("To include good practices\n" +
                         "and ideas from successful\n" +
                         "EPAM project",
@@ -137,15 +131,13 @@ public class Exercise1 {
         SoftAssert sa = new SoftAssert();
 
         driver.get("https://jdi-testing.github.io/jdi-light/index.html");
-        WebElement iframe = new WebDriverWait(driver,5)
-                .until(ExpectedConditions.presenceOfElementLocated(By.id("frame")));
+        WebElement iframe = driver.findElement(By.id("frame"));
 
         // 8. Assert that there is the iframe with “Frame Button” exist
         sa.assertTrue(iframe.isDisplayed());
 
         driver.switchTo().frame(iframe);
-        WebElement frameButton = new WebDriverWait(driver,5)
-                .until(ExpectedConditions.presenceOfElementLocated(By.id("frame-button")));
+        WebElement frameButton = driver.findElement(By.id("frame-button"));
 
         // 9. Switch to the iframe and check that there is “Frame Button” in the iframe
         sa.assertTrue(frameButton.isDisplayed());
@@ -163,8 +155,7 @@ public class Exercise1 {
         SoftAssert sa = new SoftAssert();
 
         driver.get("https://jdi-testing.github.io/jdi-light/index.html");
-        List<WebElement> leftSectionItems = new WebDriverWait(driver, 5)
-                .until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.xpath("//ul[@class='sidebar-menu']/li")));
+        List<WebElement> leftSectionItems = driver.findElements(By.xpath("//ul[@class='sidebar-menu']/li"));
         List<String> actualLeftSectionItems = Arrays.asList("Home", "Contact form", "Service",
                 "Metals & Colors", "Elements packs");
         List<String> expectedLeftSectionItems = new ArrayList<>();
