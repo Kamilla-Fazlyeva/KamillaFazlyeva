@@ -1,27 +1,9 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 <suite name="All tests suite">
 
-    <test name="Sum test">
-        <classes>
-            <class name="hw1.CalculatorSumTest"></class>
-        </classes>
-    </test>
+   <suite-files>
+        <suite-file path="Group1TestSuite.xml"></suite-file>
+        <suite-file path="Group2TestSuite.xml"></suite-file>
+    </suite-files>
 
-    <test name="Subtract test">
-        <classes>
-            <class name="hw1.CalculatorSubtractTest"></class>
-        </classes>
-    </test>
-
-    <test name="Multiply test">
-        <classes>
-            <class name="hw1.CalculatorMultiplyTest"></class>
-        </classes>
-    </test>
-
-    <test name="Divide test">
-        <classes>
-            <class name="hw1.CalculatorDivideTest"></class>
-        </classes>
-    </test>
 </suite>
