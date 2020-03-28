@@ -1,32 +1,18 @@
 package hw2.ex1;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
+import hw2.base.BaseClass;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.*;
 import org.testng.asserts.SoftAssert;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
-public class Exercise1 {
-
-    private WebDriver driver;
-
-    @BeforeClass
-    public void setUp() {
-        WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(5000, TimeUnit.MILLISECONDS);
-    }
+public class Exercise1 extends BaseClass {
 
     @Test
-    public void browserTitleTest() {
+    public void exerciseOneTest() {
         SoftAssert sa = new SoftAssert();
 
         // 1. Open test site by URL
@@ -36,35 +22,22 @@ public class Exercise1 {
 
         // 2. Assert Browser title
         sa.assertEquals(actualTitle, expectedTitle);
-        sa.assertAll();
-    }
-
-    @Test
-    public void userLoginTest() {
-        SoftAssert sa = new SoftAssert();
 
         // 3. Perform login
-        driver.get("https://jdi-testing.github.io/jdi-light/index.html");
         driver.findElement(By.id("user-icon")).click();
-        driver.findElement(By.cssSelector("#name")).sendKeys("Roman");
-        driver.findElement(By.xpath("//input[@id='password']")).sendKeys("Jdi1234");
+        driver.findElement(By.id("name")).sendKeys("Roman");
+        driver.findElement(By.id("password")).sendKeys("Jdi1234");
         driver.findElement(By.id("login-button")).click();
 
         WebElement loginUserName = driver.findElement(By.id("user-name"));
 
         // 4. Assert Username is loggined
         sa.assertEquals(loginUserName.getText(), "ROMAN IOVLEV");
-        sa.assertAll();
-    }
 
-    //5. Assert that there are 4 items on the header section are displayed and they have proper texts
-    @Test
-    public void headerSectionItemsTest() {
-        SoftAssert sa = new SoftAssert();
+        //5. Assert that there are 4 items on the header section are displayed and they have proper texts
 
-        driver.get("https://jdi-testing.github.io/jdi-light/index.html");
         List<WebElement> headerItems = driver.findElements(By
-                        .xpath("//ul[@class='uui-navigation nav navbar-nav m-l8']/li"));
+                        .cssSelector("ul[class='uui-navigation nav navbar-nav m-l8'] > li"));
         List<String> expectedHeaderItemsTexts = Arrays.asList("HOME", "CONTACT FORM", "SERVICE", "METALS & COLORS");
         List<String> actualHeaderItemsTexts = new ArrayList<>();
         for (WebElement element : headerItems) {
@@ -76,30 +49,15 @@ public class Exercise1 {
         }
         sa.assertEquals(actualHeaderItemsTexts, expectedHeaderItemsTexts);
 
-        sa.assertAll();
-    }
+        // 6. Assert that there are 4 images on the Index Page and they are displayed
 
-    // 6. Assert that there are 4 images on the Index Page and they are displayed
-    @Test
-    public void indexPageImagesTest() {
-        SoftAssert sa = new SoftAssert();
-
-        driver.get("https://jdi-testing.github.io/jdi-light/index.html");
-        List<WebElement> images = driver.findElements(By.xpath("//div[@class='benefit-icon']/span"));
+        List<WebElement> images = driver.findElements(By.cssSelector(".benefit-icon"));
 
         for (WebElement element : images) {
             sa.assertTrue(element.isDisplayed());
         }
 
-        sa.assertAll();
-    }
-
-    // 7. Assert that there are 4 texts on the Index Page under icons and they have proper text
-    @Test
-    public void textUnderIconsTest() {
-        SoftAssert sa = new SoftAssert();
-
-        driver.get("https://jdi-testing.github.io/jdi-light/index.html");
+        // 7. Assert that there are 4 texts on the Index Page under icons and they have proper text
 
         List<WebElement> iconTexts = driver.findElements(By.className("benefit-txt"));
         List<String> expectedIconTexts = Arrays.asList("To include good practices\n" +
@@ -107,10 +65,10 @@ public class Exercise1 {
                         "EPAM project",
                 "To be flexible and\n" +
                         "customizable", "To be multiplatform",
-                "Already have good base\n" +
-                        "(about 20 internal and\n" +
-                        "some external projects),\n" +
-                        "wish to get more…");
+                "Already have good base\n"+
+                "(about 20 internal and\n" +
+                 "some external projects),\n" +
+                  "wish to get more…");
         List<String> actualIconTexts = new ArrayList<>();
 
         for (WebElement element : iconTexts) {
@@ -122,15 +80,9 @@ public class Exercise1 {
         }
 
         sa.assertEquals(actualIconTexts, expectedIconTexts);
-        sa.assertAll();
-    }
 
-    // 8, 9, 10 steps
-    @Test
-    public void iframeExistsTest() {
-        SoftAssert sa = new SoftAssert();
+        // 8, 9, 10 steps
 
-        driver.get("https://jdi-testing.github.io/jdi-light/index.html");
         WebElement iframe = driver.findElement(By.id("frame"));
 
         // 8. Assert that there is the iframe with “Frame Button” exist
@@ -145,17 +97,9 @@ public class Exercise1 {
         // 10. Switch to original window back
         driver.switchTo().defaultContent();
 
-        sa.assertAll();
+        // 11. Assert that there are 5 items in the Left Section are displayed and they have proper text
 
-    }
-
-    // 11. Assert that there are 5 items in the Left Section are displayed and they have proper text
-    @Test
-    public void leftSectionMenuTest() {
-        SoftAssert sa = new SoftAssert();
-
-        driver.get("https://jdi-testing.github.io/jdi-light/index.html");
-        List<WebElement> leftSectionItems = driver.findElements(By.xpath("//ul[@class='sidebar-menu']/li"));
+        List<WebElement> leftSectionItems = driver.findElements(By.cssSelector(".sidebar-menu"));
         List<String> actualLeftSectionItems = Arrays.asList("Home", "Contact form", "Service",
                 "Metals & Colors", "Elements packs");
         List<String> expectedLeftSectionItems = new ArrayList<>();
@@ -168,13 +112,7 @@ public class Exercise1 {
         }
 
         sa.assertEquals(actualLeftSectionItems, expectedLeftSectionItems);
-        sa.assertAll();
 
     }
 
-    // 12. Close Browser
-    @AfterClass
-    public void tearDown() {
-        driver.quit();
-    }
 }
