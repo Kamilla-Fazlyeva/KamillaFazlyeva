@@ -36,7 +36,7 @@ public class Exercise2 extends BaseClass {
         serviceButton.click();
 
         WebElement differentElementsPage = driver.findElement(By
-                .cssSelector("a[href='different-elements.html']"));
+                .linkText("DIFFERENT ELEMENTS"));
         differentElementsPage.click();
 
         // 6. Select checkboxes

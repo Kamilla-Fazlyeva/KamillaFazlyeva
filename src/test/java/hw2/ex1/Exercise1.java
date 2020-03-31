@@ -37,7 +37,7 @@ public class Exercise1 extends BaseClass {
         //5. Assert that there are 4 items on the header section are displayed and they have proper texts
 
         List<WebElement> headerItems = driver.findElements(By
-                        .cssSelector("ul[class='uui-navigation nav navbar-nav m-l8'] > li"));
+                        .cssSelector(".m-l8 > li"));
         List<String> expectedHeaderItemsTexts = Arrays.asList("HOME", "CONTACT FORM", "SERVICE", "METALS & COLORS");
         List<String> actualHeaderItemsTexts = new ArrayList<>();
         for (WebElement element : headerItems) {
@@ -99,7 +99,7 @@ public class Exercise1 extends BaseClass {
 
         // 11. Assert that there are 5 items in the Left Section are displayed and they have proper text
 
-        List<WebElement> leftSectionItems = driver.findElements(By.cssSelector(".sidebar-menu"));
+        List<WebElement> leftSectionItems = driver.findElements(By.cssSelector(".sidebar-menu > li"));
         List<String> actualLeftSectionItems = Arrays.asList("Home", "Contact form", "Service",
                 "Metals & Colors", "Elements packs");
         List<String> expectedLeftSectionItems = new ArrayList<>();
@@ -113,6 +113,7 @@ public class Exercise1 extends BaseClass {
 
         sa.assertEquals(actualLeftSectionItems, expectedLeftSectionItems);
 
+        sa.assertAll();
     }
 
 }
