@@ -13,7 +13,7 @@ public class BaseClass {
     protected WebDriver driver;
 
     @BeforeClass
-    public hw3.void setUp() {
+    public void setUp() {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         driver.manage().window().maximize();
@@ -22,7 +22,7 @@ public class BaseClass {
 
     // 12. Close Browser
     @AfterClass
-    public hw3.void tearDown() {
+    public void tearDown() {
         driver.quit();
     }
 }
