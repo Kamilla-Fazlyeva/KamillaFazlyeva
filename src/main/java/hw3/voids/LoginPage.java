@@ -23,9 +23,16 @@ public class LoginPage {
     @FindBy(id = "login-button")
     private WebElement loginButton;
 
+    @FindBy(id = "user-name")
+    private WebElement userNameText;
+
     public LoginPage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
+    }
+
+    public void open() {
+        driver.get(URL);
     }
 
     public void login(final String username, final String password) {
@@ -33,6 +40,10 @@ public class LoginPage {
         userNameTextField.sendKeys(username);
         passwordTextField.sendKeys(password);
         loginButton.click();
+    }
+
+    public String getUserNameText() {
+        return userNameText.getText();
     }
 
 }

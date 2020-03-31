@@ -1,0 +1,71 @@
+package hw3.voids;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public abstract class HomePage extends AbstractPage {
+
+    private static final String URL = "https://jdi-testing.github.io/jdi-light/index.html";
+
+    @FindBy(css = ".benefit-icon")
+    private List<WebElement> imagesIndexPage;
+
+    @FindBy(className = "benefit-txt")
+    private List<WebElement> iconTexts;
+
+    @FindBy(id = "frame")
+    private WebElement iframe;
+
+    @FindBy(id = "frame-button")
+    private WebElement frameButton;
+
+    HomePage() {
+
+    }
+
+    protected HomePage(WebDriver driver) {
+        super(driver);
+    }
+
+    public void open() {
+        driver.get(URL);
+    }
+
+    public String getTitle() {
+        return driver.getTitle();
+    }
+
+    public List<WebElement> getImagesIndexPage() {
+        return this.imagesIndexPage;
+    }
+
+    public List<String> getIconText() {
+        List<String> actualIconTexts = new ArrayList<>();
+        for (WebElement element : iconTexts) {
+            actualIconTexts.add(element.getText());
+        }
+
+        return actualIconTexts;
+    }
+
+    public WebElement getFrame() {
+        return this.iframe;
+    }
+
+    public void switchToFrame() {
+        driver.switchTo().frame(iframe);
+    }
+
+    public WebElement  getFrameButton() {
+        return this.frameButton;
+    }
+
+    public void switchToOriginalPage() {
+        driver.switchTo().defaultContent();
+    }
+
+}

@@ -1,4 +1,66 @@
 package hw3.voids;
 
-public class DifferentElementsPage {
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+
+public class DifferentElementsPage extends HomePage {
+
+    @FindBy(className = "dropdown-toggle")
+    private WebElement serviceButton;
+
+    @FindBy(linkText = "DIFFERENT ELEMENTS")
+    private WebElement differentElementsPage;
+
+    @FindBy(xpath = "//label[@class='label-checkbox' and contains(.,'Water')]")
+    private WebElement waterCheckbox;
+
+    @FindBy(xpath = "//label[@class='label-checkbox' and contains(., 'Wind')]")
+    private WebElement windCheckbox;
+
+    @FindBy(xpath = "//label[@class='label-radio' and contains(., 'Selen')]")
+    private WebElement selenRadio;
+
+    @FindBy(xpath = "//select[@class='uui-form-element' and contains(., 'Yellow')]")
+    private WebElement dropdownYellow;
+
+    public WebElement getServiceButton() {
+        return this.serviceButton;
+    }
+
+    public WebElement getDifferentElementsPage() {
+        return this.differentElementsPage;
+    }
+
+    public WebElement getWaterCheckbox() {
+        return this.waterCheckbox;
+    }
+
+    public WebElement getWindCheckbox() {
+        return this.windCheckbox;
+    }
+
+    public WebElement getSelenRadio() {
+        return this.selenRadio;
+    }
+
+    public WebElement getDropdownYellow() {
+        return this.dropdownYellow;
+    }
+
+    public void selectWaterCheckbox() {
+        waterCheckbox.click();
+    }
+
+    public void selectWindCheckbox() {
+        windCheckbox.click();
+    }
+
+    public void selectSelenRadio() {
+        selenRadio.click();
+    }
+
+    public void selectDropdownYellow() {
+        dropdownYellow.click();
+    }
+
 }
