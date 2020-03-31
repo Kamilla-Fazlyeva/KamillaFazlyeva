@@ -10,7 +10,7 @@ import static org.testng.Assert.*;
 public class Exercise2 extends BaseClass {
 
     @Test
-    public hw3.void exerciseTwoTest() {
+    public void exerciseTwoTest() {
 
         // 1. Open test site by URL
         driver.get("https://jdi-testing.github.io/jdi-light/index.html");

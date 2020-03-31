@@ -100,11 +100,11 @@ public class Exercise1 extends BaseClass {
         // 11. Assert that there are 5 items in the Left Section are displayed and they have proper text
 
         List<WebElement> leftSectionItems = driver.findElements(By.cssSelector(".sidebar-menu"));
-        List<String> actualLeftSectionItems = Arrays.asList("Home", "Contact form", "Service",
+        List<String> expectedLeftSectionItems = Arrays.asList("Home", "Contact form", "Service",
                 "Metals & Colors", "Elements packs");
-        List<String> expectedLeftSectionItems = new ArrayList<>();
+        List<String> actualLeftSectionItems = new ArrayList<>();
         for (WebElement element : leftSectionItems) {
-            expectedLeftSectionItems.add(element.getText());
+            actualLeftSectionItems.add(element.getText());
         }
 
         for (WebElement element : leftSectionItems) {
