@@ -11,7 +11,11 @@ public class HeaderSection {
     @FindBy(css = ".m-l8 > li")
     private List<WebElement> headerItems;
 
-    public List<String> getHeaderItems() {
+    public List<WebElement> getHeaderItems() {
+        return this.headerItems;
+    }
+
+    public List<String> getHeaderItemsTexts() {
         List<String> actualHeaderItemsTexts = new ArrayList<>();
         for (WebElement element : headerItems) {
             actualHeaderItemsTexts.add(element.getText());
