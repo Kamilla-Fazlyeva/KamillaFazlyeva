@@ -5,12 +5,6 @@ import org.openqa.selenium.support.FindBy;
 
 public class DifferentElementsPage extends HomePage {
 
-    @FindBy(className = "dropdown-toggle")
-    private WebElement serviceButton;
-
-    @FindBy(linkText = "DIFFERENT ELEMENTS")
-    private WebElement differentElementsPage;
-
     @FindBy(xpath = "//label[@class='label-checkbox' and contains(.,'Water')]")
     private WebElement waterCheckbox;
 
@@ -22,14 +16,6 @@ public class DifferentElementsPage extends HomePage {
 
     @FindBy(xpath = "//select[@class='uui-form-element' and contains(., 'Yellow')]")
     private WebElement dropdownYellow;
-
-    public WebElement getServiceButton() {
-        return this.serviceButton;
-    }
-
-    public WebElement getDifferentElementsPage() {
-        return this.differentElementsPage;
-    }
 
     public WebElement getWaterCheckbox() {
         return this.waterCheckbox;

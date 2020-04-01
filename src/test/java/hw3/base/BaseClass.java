@@ -2,6 +2,8 @@ package hw3.base;
 
 import hw3.composite.HeaderSection;
 import hw3.composite.LeftSection;
+import hw3.ex1.HomePageSoftAsserts;
+import hw3.ex1.HomePageSteps;
 import hw3.voids.DifferentElementsPage;
 import hw3.voids.HomePage;
 import io.github.bonigarcia.wdm.WebDriverManager;
@@ -15,14 +17,12 @@ import java.util.concurrent.TimeUnit;
 public class BaseClass {
 
     protected WebDriver driver;
-
     protected HomePage homePage;
-
-    protected HeaderSection headerSection;
-
-    protected LeftSection leftSection;
-
     protected DifferentElementsPage differentElementsPage;
+    protected HeaderSection headerSection;
+    protected LeftSection leftSection;
+    protected HomePageSteps homePageSteps;
+    protected HomePageSoftAsserts homePageSoftAsserts;
 
     public BaseClass() {
 
@@ -31,6 +31,11 @@ public class BaseClass {
     public BaseClass(WebDriver driver) {
         driver = new ChromeDriver();
         this.homePage = new HomePage();
+        this.differentElementsPage = new DifferentElementsPage();
+        this.homePageSteps = new HomePageSteps(driver);
+        this.homePageSoftAsserts = new HomePageSoftAsserts(driver);
+        this.headerSection = new HeaderSection();
+        this.leftSection = new LeftSection();
     }
 
     @BeforeClass

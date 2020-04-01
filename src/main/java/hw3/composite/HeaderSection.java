@@ -11,6 +11,12 @@ public class HeaderSection {
     @FindBy(css = ".m-l8 > li")
     private List<WebElement> headerItems;
 
+    @FindBy(className = "dropdown-toggle")
+    private WebElement serviceButton;
+
+    @FindBy(linkText = "DIFFERENT ELEMENTS")
+    private WebElement differentElementsPage;
+
     public List<WebElement> getHeaderItems() {
         return this.headerItems;
     }
@@ -22,5 +28,13 @@ public class HeaderSection {
         }
 
         return actualHeaderItemsTexts;
+    }
+
+    public WebElement getServiceButton() {
+        return this.serviceButton;
+    }
+
+    public WebElement getDifferentElementsPage() {
+        return this.differentElementsPage;
     }
 }
