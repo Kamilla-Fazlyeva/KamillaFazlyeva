@@ -1,11 +1,16 @@
 package hw3.ex2;
 
 import hw3.base.BaseClass;
+import org.openqa.selenium.WebDriver;
 
 import static org.testng.Assert.assertFalse;
 import static org.testng.Assert.assertTrue;
 
 public class DifferentElementsAsserts extends BaseClass {
+
+    public DifferentElementsAsserts(WebDriver driver) {
+        super(driver);
+    }
 
     public void shouldReturnWaterCheckbox() {
         assertFalse(differentElementsPage.getWaterCheckbox().isSelected());

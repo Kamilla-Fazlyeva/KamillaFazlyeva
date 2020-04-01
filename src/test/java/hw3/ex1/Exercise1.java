@@ -1,13 +1,8 @@
 package hw3.ex1;
 
 import hw3.base.BaseClass;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import org.testng.annotations.*;
 import org.testng.asserts.SoftAssert;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 public class Exercise1 extends BaseClass {
 
@@ -30,7 +25,7 @@ public class Exercise1 extends BaseClass {
         homePageSteps.login("" , "");
 
         // 4. Assert Username is loggined
-        homePageSoftAsserts.loginTest();
+        homePageSoftAsserts.shouldReturnUsernameText();
 
         //5. Assert that there are 4 items on the header section are displayed and they have proper texts
         homePageSoftAsserts.shouldReturnHeaderSectionItems();

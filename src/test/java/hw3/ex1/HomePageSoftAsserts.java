@@ -8,6 +8,8 @@ import org.testng.asserts.SoftAssert;
 import java.util.Arrays;
 import java.util.List;
 
+import static org.testng.Assert.assertEquals;
+
 public class HomePageSoftAsserts extends BaseClass {
 
     public HomePageSoftAsserts(WebDriver driver) {
@@ -16,7 +18,7 @@ public class HomePageSoftAsserts extends BaseClass {
 
     SoftAssert sa = new SoftAssert();
 
-    public void loginTest() {
+    public void shouldReturnUsernameText() {
         sa.assertEquals(homePage.getUserNameText(), "ROMAN IOVLEV");
     }
 
