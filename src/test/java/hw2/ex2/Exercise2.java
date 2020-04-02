@@ -66,18 +66,22 @@ public class Exercise2 extends BaseClass {
         // 9.1 Assert that for each checkbox there is an individual log row
         // and value is corresponded to the status of checkbox
         assertFalse(waterCheckbox.isSelected());
-        assertTrue(waterCheckbox.getText().contains("Water"));
+        WebElement logWaterCheckbox = driver.findElement(By.xpath("//li[contains(., 'Water')]"));
+        assertTrue(logWaterCheckbox.getText().contains("Water"));
 
-        assertFalse(waterCheckbox.isSelected());
-        assertTrue(windCheckbox.getText().contains("Wind"));
+        assertFalse(windCheckbox.isSelected());
+        WebElement logWindCheckbox = driver.findElement(By.xpath("//li[contains(., 'Wind')]"));
+        assertTrue(logWindCheckbox.getText().contains("Wind"));
 
         // 9.2 Assert that for radio button there is a log row and value is corresponded to the status of radio button
-        assertFalse(waterCheckbox.isSelected());
-        assertTrue(selenRadio.getText().contains("Selen"));
+        assertFalse(selenRadio.isSelected());
+        WebElement logSelenRadio = driver.findElement(By.xpath("//li[contains(., 'Selen')]"));
+        assertTrue(logSelenRadio.getText().contains("Selen"));
 
         // 9.3 Assert that for dropdown there is a log row and value is corresponded to the selected value
-        assertFalse(waterCheckbox.isSelected());
-        assertTrue(dropdownYellow.getText().contains("Yellow"));
+        assertFalse(dropdownYellow.isSelected());
+        WebElement logdropdownYellow = driver.findElement(By.xpath("//li[contains(., 'Yellow')]"));
+        assertTrue(logdropdownYellow.getText().contains("Yellow"));
 
     }
 }
