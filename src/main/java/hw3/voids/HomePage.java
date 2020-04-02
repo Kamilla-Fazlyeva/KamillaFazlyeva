@@ -39,10 +39,6 @@ public class HomePage extends AbstractPage {
     @FindBy(id = "frame-button")
     private WebElement frameButton;
 
-    public HomePage() {
-
-    }
-
     protected HomePage(WebDriver driver) {
         super(driver);
     }

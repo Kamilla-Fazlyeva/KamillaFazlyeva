@@ -1,9 +1,14 @@
 package hw3.voids;
 
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class DifferentElementsPage extends HomePage {
+public class DifferentElementsPage extends AbstractPage {
+
+    public DifferentElementsPage(WebDriver driver) {
+        super(driver);
+    }
 
     @FindBy(xpath = "//label[@class='label-checkbox' and contains(.,'Water')]")
     private WebElement waterCheckbox;

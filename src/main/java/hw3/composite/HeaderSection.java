@@ -1,5 +1,6 @@
 package hw3.composite;
 
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -7,6 +8,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class HeaderSection {
+
+    protected WebDriver driver;
+
+    public HeaderSection(WebDriver driver) {
+        this.driver = driver;
+    }
 
     @FindBy(css = ".m-l8 > li")
     private List<WebElement> headerItems;
