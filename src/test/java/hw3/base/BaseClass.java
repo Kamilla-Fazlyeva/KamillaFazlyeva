@@ -24,7 +24,7 @@ public abstract class BaseClass {
         driver.manage().timeouts().implicitlyWait(5000, TimeUnit.MILLISECONDS);
 
         properties = new Properties();
-        try(InputStream input = new FileInputStream("src/main/resources/config.properties")) {
+        try(InputStream input = new FileInputStream("src/main/resources/hw3/config.properties")) {
             properties.load(input);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
