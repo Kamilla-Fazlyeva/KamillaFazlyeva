@@ -4,7 +4,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class LeftSection {
@@ -22,12 +21,12 @@ public class LeftSection {
         return this.leftSectionItems;
     }
 
-    public List<String> getLeftSectionItemsTexts() {
+   /* public List<String> getLeftSectionItemsTexts() {
         List<String> actualLeftSectionItems = new ArrayList<>();
         for (WebElement element : leftSectionItems) {
             actualLeftSectionItems.add(element.getText());
         }
 
         return actualLeftSectionItems;
-    }
+    }*/
 }

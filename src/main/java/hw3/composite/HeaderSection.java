@@ -3,8 +3,6 @@ package hw3.composite;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-
-import java.util.ArrayList;
 import java.util.List;
 
 public class HeaderSection {
@@ -28,14 +26,14 @@ public class HeaderSection {
         return this.headerItems;
     }
 
-    public List<String> getHeaderItemsTexts() {
+  /*  public List<String> getHeaderItemsTexts() {
         List<String> actualHeaderItemsTexts = new ArrayList<>();
         for (WebElement element : headerItems) {
             actualHeaderItemsTexts.add(element.getText());
         }
 
         return actualHeaderItemsTexts;
-    }
+    }*/
 
     public WebElement getServiceButton() {
         return this.serviceButton;

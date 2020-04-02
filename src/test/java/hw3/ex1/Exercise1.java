@@ -27,7 +27,7 @@ public class Exercise1 extends BaseClass {
         homePageAsserts.shouldReturnPageTitle();
 
         // 3. Perform login
-        homePageSteps.login("" , "");
+        homePageSteps.login(properties.getProperty("username"), properties.getProperty("password"));
 
         // 4. Assert Username is loggined
         homePageAsserts.shouldReturnUsernameText();

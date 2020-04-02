@@ -22,12 +22,12 @@ public abstract class AbstractBaseClass {
     protected DifferentElementsAsserts differentElementsAsserts;
 
     public AbstractBaseClass(WebDriver driver) {
-        this.homePage = new HomePage();
-        this.differentElementsPage = new DifferentElementsPage();
+        this.homePage = new HomePage(driver);
+        this.differentElementsPage = new DifferentElementsPage(driver);
         this.homePageSteps = new HomePageSteps(driver);
         this.homePageAsserts = new HomePageAsserts(driver);
-        this.headerSection = new HeaderSection();
-        this.leftSection = new LeftSection();
+        this.headerSection = new HeaderSection(driver);
+        this.leftSection = new LeftSection(driver);
         this.differentElementsAsserts = new DifferentElementsAsserts(driver);
         this.differentElementsPageSteps = new DifferentElementsPageSteps(driver);
     }

@@ -8,8 +8,6 @@ import org.testng.asserts.SoftAssert;
 import java.util.Arrays;
 import java.util.List;
 
-import static org.testng.Assert.assertEquals;
-
 public class HomePageAsserts extends AbstractBaseClass {
 
     public HomePageAsserts(WebDriver driver) {
@@ -27,14 +25,14 @@ public class HomePageAsserts extends AbstractBaseClass {
     }
 
     public void shouldReturnHeaderSectionItems() {
-        for (WebElement element : headerSection.getHeaderItems()) {
+        for (WebElement element : homePage.getHeaderSection().getHeaderItems()) {
             sa.assertTrue(element.isDisplayed());
         }
     }
 
     public void shouldReturnHeaderSectionItemsTexts() {
         List<String> expectedHeaderItemsTexts = Arrays.asList("HOME", "CONTACT FORM", "SERVICE", "METALS & COLORS");
-        for (WebElement element : headerSection.getHeaderItems()) {
+        for (WebElement element : homePage.getHeaderSection().getHeaderItems()) {
             sa.assertEquals(element.getText(), expectedHeaderItemsTexts);
         }
     }
@@ -67,7 +65,7 @@ public class HomePageAsserts extends AbstractBaseClass {
     }
 
     public void shouldReturnLeftSectionItems() {
-        for (WebElement element : leftSection.getLeftSectionItems()) {
+        for (WebElement element : homePage.getLeftSection().getLeftSectionItems()) {
             sa.assertTrue(element.isDisplayed());
         }
     }
@@ -75,7 +73,7 @@ public class HomePageAsserts extends AbstractBaseClass {
     public void shouldReturnLeftSectionItemsTexts() {
         List<String> expectedLeftSectionItems = Arrays.asList("Home", "Contact form", "Service",
                 "Metals & Colors", "Elements packs");
-        for (WebElement element : leftSection.getLeftSectionItems()) {
+        for (WebElement element : homePage.getLeftSection().getLeftSectionItems()) {
             sa.assertEquals(element.getText(), expectedLeftSectionItems);
         }
     }
