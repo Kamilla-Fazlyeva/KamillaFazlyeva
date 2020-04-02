@@ -32,7 +32,7 @@ public class Exercise2 extends BaseClass {
         homePageAsserts.shouldReturnPageTitle();
 
         // 3. Perform login
-        homePageSteps.login("" , "");
+        homePageSteps.login(properties.getProperty("username"), properties.getProperty("password"));
 
         // 4. Assert User name in the left-top side of screen that user is loggined
         homePageAsserts.shouldReturnUsernameText();

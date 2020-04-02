@@ -32,9 +32,7 @@ public class HomePageAsserts extends AbstractBaseClass {
 
     public void shouldReturnHeaderSectionItemsTexts() {
         List<String> expectedHeaderItemsTexts = Arrays.asList("HOME", "CONTACT FORM", "SERVICE", "METALS & COLORS");
-        for (WebElement element : homePage.getHeaderSection().getHeaderItems()) {
-            sa.assertEquals(element.getText(), expectedHeaderItemsTexts);
-        }
+        sa.assertEquals(homePage.getHeaderSection().getHeaderItemsTexts(), expectedHeaderItemsTexts);
     }
 
     public void shouldReturnImagesIndexPage() {

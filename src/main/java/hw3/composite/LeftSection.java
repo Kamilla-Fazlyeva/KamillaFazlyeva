@@ -18,15 +18,7 @@ public class LeftSection {
     private List<WebElement> leftSectionItems;
 
     public List<WebElement> getLeftSectionItems() {
-        return this.leftSectionItems;
+        return leftSectionItems;
     }
 
-   /* public List<String> getLeftSectionItemsTexts() {
-        List<String> actualLeftSectionItems = new ArrayList<>();
-        for (WebElement element : leftSectionItems) {
-            actualLeftSectionItems.add(element.getText());
-        }
-
-        return actualLeftSectionItems;
-    }*/
 }

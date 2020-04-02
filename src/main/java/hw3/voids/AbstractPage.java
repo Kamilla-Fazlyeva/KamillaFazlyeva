@@ -19,10 +19,10 @@ public abstract class AbstractPage {
     }
 
     public HeaderSection getHeaderSection() {
-        return this.headerSection;
+        return headerSection;
     }
 
     public LeftSection getLeftSection() {
-        return this.leftSection;
+        return leftSection;
     }
 }
