@@ -1,6 +1,6 @@
 package hw3.ex1;
 
-import hw3.base.BaseClass;
+import hw3.base.AbstractBaseClass;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.asserts.SoftAssert;
@@ -10,9 +10,9 @@ import java.util.List;
 
 import static org.testng.Assert.assertEquals;
 
-public class HomePageSoftAsserts extends BaseClass {
+public class HomePageAsserts extends AbstractBaseClass {
 
-    public HomePageSoftAsserts(WebDriver driver) {
+    public HomePageAsserts(WebDriver driver) {
         super(driver);
     }
 

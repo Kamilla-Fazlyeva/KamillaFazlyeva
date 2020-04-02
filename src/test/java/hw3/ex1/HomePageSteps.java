@@ -1,10 +1,10 @@
 package hw3.ex1;
 
 
-import hw3.base.BaseClass;
+import hw3.base.AbstractBaseClass;
 import org.openqa.selenium.WebDriver;
 
-public class HomePageSteps extends BaseClass {
+public class HomePageSteps extends AbstractBaseClass {
 
     public HomePageSteps(WebDriver driver) {
         super(driver);

@@ -1,9 +1,9 @@
 package hw3.ex2;
 
-import hw3.base.BaseClass;
+import hw3.base.AbstractBaseClass;
 import org.openqa.selenium.WebDriver;
 
-public class DifferentElementsPageSteps extends BaseClass {
+public class DifferentElementsPageSteps extends AbstractBaseClass {
 
     public DifferentElementsPageSteps(WebDriver driver) {
         super(driver);
