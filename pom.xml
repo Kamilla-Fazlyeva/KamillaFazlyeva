@@ -25,79 +25,7 @@
         <maven-surefire-plugin.version>2.22.2</maven-surefire-plugin.version>
     </properties>
 
-    <profiles>
-        <profile>
-            <id>additive</id>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
-            <properties>
-                <suite.xml>src/test/resources/hw1/Group1TestSuite.xml</suite.xml>
-            </properties>
-        </profile>
-
-        <profile>
-            <id>multiplicative</id>
-            <activation>
-                <activeByDefault>false</activeByDefault>
-            </activation>
-            <properties>
-                <suite.xml>src/test/resources/hw1/Group2TestSuite.xml</suite.xml>
-            </properties>
-        </profile>
-
-        <profile>
-            <id>allTests</id>
-            <activation>
-                <activeByDefault>false</activeByDefault>
-            </activation>
-            <properties>
-                <suite.xml>src/test/resources/hw1/AllTestsSuite.xml</suite.xml>
-            </properties>
-        </profile>
-        <profile>
-            <id>Exercise1</id>
-            <activation>
-                <activeByDefault>false</activeByDefault>
-            </activation>
-            <properties>
-                <suite.xml>src/test/resources/hw2/ExerciseOneTestSuite.xml</suite.xml>
-            </properties>
-        </profile>
-
-        <profile>
-            <id>Exercise2</id>
-            <activation>
-                <activeByDefault>false</activeByDefault>
-            </activation>
-            <properties>
-                <suite.xml>src/test/resources/hw2/ExerciseTwoTestSuite.xml</suite.xml>
-            </properties>
-        </profile>
-
-        <profile>
-            <id>Homework2</id>
-            <activation>
-                <activeByDefault>false</activeByDefault>
-            </activation>
-            <properties>
-                <suite.xml>src/test/resources/hw2/Homework2TestSuite.xml</suite.xml>
-            </properties>
-        </profile>
-    </profiles>
-
-
     <dependencies>
-        <dependency>
-            <groupId>com.epam.tat.module4</groupId>
-            <artifactId>calculator-1.0</artifactId>
-            <version>1.0</version>
-            <scope>system</scope>
-            <systemPath>${basedir}/src/main/resources/calculator-1.0.jar</systemPath>
-            <type>jar</type>
-            <optional>true</optional>
-        </dependency>
-
         <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
@@ -146,11 +74,6 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>${maven-surefire-plugin.version}</version>
-                <configuration>
-                    <suiteXmlFiles>
-                        <xmlFile>${suite.xml}</xmlFile>
-                    </suiteXmlFiles>
-                </configuration>
             </plugin>
         </plugins>
     </build>
