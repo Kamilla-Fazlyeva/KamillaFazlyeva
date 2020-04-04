@@ -3,6 +3,9 @@ package hw3.voids;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.Select;
+
+import java.util.List;
 
 public class DifferentElementsPage extends AbstractPage {
 
@@ -10,48 +13,53 @@ public class DifferentElementsPage extends AbstractPage {
         super(driver);
     }
 
-    @FindBy(xpath = "//label[@class='label-checkbox' and contains(.,'Water')]")
-    private WebElement waterCheckbox;
+    @FindBy(css = ".label-checkbox")
+    private List<WebElement> checkboxes;
 
-    @FindBy(xpath = "//label[@class='label-checkbox' and contains(., 'Wind')]")
-    private WebElement windCheckbox;
+    @FindBy(css = ".label-radio")
+    private List<WebElement> radioButtons;
 
-    @FindBy(xpath = "//label[@class='label-radio' and contains(., 'Selen')]")
-    private WebElement selenRadio;
+    @FindBy(xpath = "//select[@class='uui-form-element']")
+    private WebElement dropdownSelect;
 
-    @FindBy(xpath = "//select[@class='uui-form-element' and contains(., 'Yellow')]")
-    private WebElement dropdownYellow;
+    @FindBy(css = ".info-panel-body-log")
+    private WebElement logRow;
 
-    public WebElement getWaterCheckbox() {
-        return this.waterCheckbox;
+    public List<WebElement> getCheckboxes() {
+        return checkboxes;
     }
 
-    public WebElement getWindCheckbox() {
-        return this.windCheckbox;
+    public List<WebElement> getRadioButtons() {
+        return radioButtons;
     }
 
-    public WebElement getSelenRadio() {
-        return this.selenRadio;
+    public WebElement getDropdownSelect() {
+        return dropdownSelect;
     }
 
-    public WebElement getDropdownYellow() {
-        return this.dropdownYellow;
+    public void selectCheckbox(String checkboxName) {
+       for (WebElement element : checkboxes) {
+           if (element.getText().equals(checkboxName)) {
+               element.click();
+           }
+       }
     }
 
-    public void selectWaterCheckbox() {
-        waterCheckbox.click();
+    public void selectRadioButton(String radioButtonName) {
+        for (WebElement element : radioButtons) {
+            if (element.getText().equals(radioButtonName)) {
+                element.click();
+            }
+        }
     }
 
-    public void selectWindCheckbox() {
-        windCheckbox.click();
+    public void selectDropdown(String colorText) {
+        Select dropdown = new Select(dropdownSelect);
+        dropdown.selectByVisibleText(colorText);
     }
 
-    public void selectSelenRadio() {
-        selenRadio.click();
-    }
-
-    public void selectDropdownYellow() {
-        dropdownYellow.click();
+    public String getLogRowText() {
+        return logRow.getText();
     }
 
 }

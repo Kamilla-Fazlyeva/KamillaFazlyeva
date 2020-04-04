@@ -10,6 +10,7 @@ public class Exercise1 extends BaseClass {
     private HomePageAsserts homePageAsserts;
 
     @BeforeMethod
+    @Override
     public void setUp(){
         super.setUp();
         homePageSteps = new HomePageSteps(driver);
@@ -55,6 +56,8 @@ public class Exercise1 extends BaseClass {
         // 11. Assert that there are 5 items in the Left Section are displayed and they have proper text
        // homePageAsserts.shouldReturnLeftSectionItems();
         // homePageAsserts.shouldReturnLeftSectionItemsTexts();
+        homePageAsserts.shouldReturnLeftSectionItems();
+        homePageAsserts.shouldReturnLeftSectionItemsTexts();
 
         homePageAsserts.softAssertAll();
 

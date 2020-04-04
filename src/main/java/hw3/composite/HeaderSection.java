@@ -3,18 +3,13 @@ package hw3.composite;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
-
-import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
-public class HeaderSection {
-
-    protected WebDriver driver;
+public class HeaderSection extends AbstractPageComposite {
 
     public HeaderSection(WebDriver driver) {
-        this.driver = driver;
-        PageFactory.initElements(driver, this);
+        super(driver);
     }
 
     @FindBy(css = ".m-l8 > li")
@@ -31,12 +26,9 @@ public class HeaderSection {
     }
 
     public List<String> getHeaderItemsTexts() {
-        List<String> actualHeaderItemsTexts = new ArrayList<>();
-        for (WebElement element : headerItems) {
-            actualHeaderItemsTexts.add(element.getText());
-        }
-
-        return actualHeaderItemsTexts;
+        return headerItems.stream()
+                .map(WebElement::getText)
+                .collect(Collectors.toList());
     }
 
     public WebElement getServiceButton() {

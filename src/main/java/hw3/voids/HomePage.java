@@ -7,6 +7,7 @@ import org.openqa.selenium.support.PageFactory;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class HomePage extends AbstractPage {
 
@@ -67,12 +68,9 @@ public class HomePage extends AbstractPage {
     }
 
     public List<String> getIconText() {
-        List<String> actualIconTexts = new ArrayList<>();
-        for (WebElement element : iconTexts) {
-            actualIconTexts.add(element.getText());
-        }
-
-        return actualIconTexts;
+        return iconTexts.stream()
+                .map(WebElement::getText)
+                .collect(Collectors.toList());
     }
 
     public WebElement getFrame() {

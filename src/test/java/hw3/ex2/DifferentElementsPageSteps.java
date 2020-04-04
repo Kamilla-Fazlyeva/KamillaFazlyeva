@@ -9,19 +9,15 @@ public class DifferentElementsPageSteps extends AbstractBaseClass {
         super(driver);
     }
 
-    public void clickWaterCheckbox() {
-        differentElementsPage.selectWaterCheckbox();
+    public void selectCheckbox(String checkboxName) {
+        differentElementsPage.selectCheckbox(checkboxName);
     }
 
-    public void clickWindCheckbox() {
-        differentElementsPage.selectWindCheckbox();
+    public void selectRadioButton(String radioButtonName) {
+        differentElementsPage.selectRadioButton(radioButtonName);
     }
 
-    public void clickSelenRadioCheckbox() {
-        differentElementsPage.selectSelenRadio();
-    }
-
-    public void clickDropdownYellow() {
-        differentElementsPage.selectDropdownYellow();
+    public void selectDropdown(String colorText) {
+        differentElementsPage.selectDropdown(colorText);
     }
 }

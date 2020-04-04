@@ -71,9 +71,7 @@ public class HomePageAsserts extends AbstractBaseClass {
     public void shouldReturnLeftSectionItemsTexts() {
         List<String> expectedLeftSectionItems = Arrays.asList("Home", "Contact form", "Service",
                 "Metals & Colors", "Elements packs");
-        for (WebElement element : homePage.getLeftSection().getLeftSectionItems()) {
-            sa.assertEquals(element.getText(), expectedLeftSectionItems);
-        }
+        sa.assertEquals(homePage.getLeftSection().getLeftSectionItemsTexts(), expectedLeftSectionItems);
     }
 
     public void softAssertAll() {
