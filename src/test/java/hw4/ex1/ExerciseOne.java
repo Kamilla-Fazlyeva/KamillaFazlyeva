@@ -1,43 +1,65 @@
 package hw4.ex1;
 
 import hw4.base.BaseClass;
+import hw4.pages.HomePage;
+import hw4.pages.TableWithPages;
+import org.openqa.selenium.WebElement;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import java.util.List;
+
+import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertTrue;
+
 public class ExerciseOne extends BaseClass {
 
-    private HomePageSteps homePageSteps;
-    private TableWithPagesSteps tableWithPagesSteps;
-    private ExerciseOneAsserts exerciseOneAsserts;
+    private HomePage homePage;
+    private TableWithPages tableWithPages;
 
     @BeforeMethod
+    @Override
     public void setUp() {
         super.setUp();
-        homePageSteps = new HomePageSteps(driver);
-        tableWithPagesSteps = new TableWithPagesSteps(driver);
-        exerciseOneAsserts = new ExerciseOneAsserts(driver);
+        homePage = new HomePage(driver);
+        tableWithPages = new TableWithPages(driver);
     }
 
     @Test
     public void exerciseOneTest() {
 
-        homePageSteps.open();
+        // 1. Open test site by URL
+        homePage.open();
 
-        exerciseOneAsserts.shouldReturnPageTitle();
+        // 2. Assert Browser title
+        assertEquals(homePage.getTitle(), "Home Page");
 
-        homePageSteps.login(properties.getProperty("username"), properties.getProperty("password"));
+        // 3. Perform login
+        homePage.login(properties.getProperty("username"), properties.getProperty("password"));
 
-        exerciseOneAsserts.shouldReturnUsernameText();
+        // 4. Assert User name in the left-top side of screen that user is loggined
+        assertEquals(homePage.getUserNameText(), "ROMAN IOVLEV");
 
-        homePageSteps.clickServiceButton();
-        homePageSteps.openTableWithPages();
+        // 5. Open through the header menu Service -> Table with pages
+        homePage.getHeaderSection().getServiceButton().click();
+        homePage.getHeaderSection().getTableWithPages().click();
 
-        exerciseOneAsserts.shouldReturnDefaultValue();
-        tableWithPagesSteps.selectValue();
+        // 6. Check that default value for “Show entries” dropdown is 5
+        assertEquals(tableWithPages.getDefaultValue().getText(), "5");
 
-        exerciseOneAsserts.shouldReturnAmountOfEntries();
+        // 7. Select new value for the entries in the dropdown list
+        tableWithPages.selectTableEntries("10");
 
-        tableWithPagesSteps.typeSearchField(properties.getProperty("search"));
-        exerciseOneAsserts.shouldReturnTrueIfTableContainsSearchValue();
+        // 8. Assert that in the table displayed corrected amount of entries
+        assertTrue(tableWithPages.getLogRowText().contains("new value=10"));
+
+        // 9. Type in “Search” text field
+        tableWithPages.typeSearchField(properties.getProperty("search"));
+
+        // 10. Assert the table contains only records with Search field value
+        for (WebElement element : tableWithPages.getTableRows()) {
+            System.out.println(element.getText());
+            assertTrue(element.getText().contains(properties.getProperty("search")));
+        }
     }
 }

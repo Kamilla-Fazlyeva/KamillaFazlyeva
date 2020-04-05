@@ -7,13 +7,12 @@ import org.openqa.selenium.support.PageFactory;
 
 import java.util.List;
 
-public class HeaderSection {
+public class HeaderSection extends AbstractPageComposite{
 
     protected WebDriver driver;
 
     public HeaderSection(WebDriver driver) {
-        this.driver = driver;
-        PageFactory.initElements(driver, this);
+        super(driver);
     }
 
     @FindBy(css = ".m-l8 > li")
@@ -25,6 +24,9 @@ public class HeaderSection {
     @FindBy(linkText = "TABLE WITH PAGES")
     private WebElement tableWithPages;
 
+    @FindBy(linkText = "METALS & COLORS")
+    private WebElement metalAndColorPage;
+
     public List<WebElement> getHeaderItems() {
         return this.headerItems;
     }
@@ -35,5 +37,9 @@ public class HeaderSection {
 
     public WebElement getTableWithPages() {
         return this.tableWithPages;
+    }
+
+    public WebElement getMetalAndColorPage() {
+        return metalAndColorPage;
     }
 }
