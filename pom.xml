@@ -84,6 +84,36 @@
                 <suite.xml>src/test/resources/hw2/Homework2TestSuite.xml</suite.xml>
             </properties>
         </profile>
+      
+      <profile>
+            <id>Homework3Tests</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                    <suite.xml>src/test/resources/hw3/Homework3TestSuite.xml</suite.xml>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>Homework3Exercise1</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+            <suite.xml>src/test/resources/hw3/ExerciseOneTestSuite.xml</suite.xml>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>Homework3Exercise2</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <suite.xml>src/test/resources/hw3/ExerciseTwoTestSuite.xml</suite.xml>
+            </properties>
+        </profile>
     </profiles>
 
 
