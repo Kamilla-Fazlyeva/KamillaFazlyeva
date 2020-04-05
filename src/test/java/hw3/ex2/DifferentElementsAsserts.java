@@ -13,15 +13,15 @@ public class DifferentElementsAsserts extends AbstractBaseClass {
     }
 
     public void shouldReturnSelectedCheckbox() {
-        differentElementsPage.getCheckboxes().forEach(element -> assertFalse(element.isSelected()));
+        differentElementsPage.getCheckboxes().forEach(element -> assertTrue(element.isSelected()));
     }
 
     public void shouldReturnSelectedRadioButton() {
-        differentElementsPage.getRadioButtons().forEach(element -> assertFalse(element.isSelected()));
+        differentElementsPage.getRadioButtons().forEach(element -> assertTrue(element.isSelected()));
     }
 
     public void shouldReturnSelectedDropdown() {
-        assertFalse(differentElementsPage.getDropdownSelect().isSelected());
+        assertTrue(differentElementsPage.getDropdownSelect().isSelected());
     }
 
     public void shouldReturnLogRowText(String logRowText) {
