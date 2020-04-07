@@ -1,0 +1,1 @@
+{"uuid":"8f5cf515-d84b-4fe0-a05a-22fd3d58b7a4","name":"Exercise1 test suite","children":["6d073427-bd1f-46a5-91c3-e186ad487148"],"befores":[{"name":"suiteSetUp","status":"passed","stage":"finished","description":"","steps":[],"attachments":[],"parameters":[],"start":1586192842242,"stop":1586192854890}],"afters":[],"links":[],"start":1586192842168,"stop":1586192897878}

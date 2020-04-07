@@ -1,5 +1,6 @@
 package hw4.pages;
 
+import hw4.utils.SummarySum;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -7,10 +8,6 @@ import org.openqa.selenium.support.FindBy;
 import java.util.List;
 
 public class MetalAndColorPage extends AbstractPage {
-
-    public MetalAndColorPage(WebDriver driver) {
-        super(driver);
-    }
 
     @FindBy(css = "p.radio > label")
     private List<WebElement> summaryRadioButtons;
@@ -39,53 +36,43 @@ public class MetalAndColorPage extends AbstractPage {
     @FindBy(xpath = "//ul[@class='panel-body-list results']//li")
     private List<WebElement> results;
 
-    public void selectSummaryRadioButtons(List<String> summaryRadioButtonName) {
-        for (WebElement element : summaryRadioButtons) {
-            if (summaryRadioButtonName.contains(element.getText())) {
-                element.click();
-            }
-        }
+    private SummarySum summarySum;
+
+    public MetalAndColorPage(WebDriver driver) {
+        super(driver);
     }
 
-    public void selectElementsCheckbox(List<String> elementsName) {
-        for (WebElement element : elementsCheckboxes) {
-            if (elementsName.contains(element.getText())) {
-                element.click();
-            }
-        }
+    public List<WebElement> getSummaryRadioButtons() {
+        return summaryRadioButtons;
     }
 
-    public void clickColorDropdown() {
-        colorDropdown.click();
+    public List<WebElement> getElementsCheckboxes() {
+        return elementsCheckboxes;
     }
 
-    public void selectColorDropdown(String colorText) {
-        for (WebElement element : colorAndMetalOptions) {
-            if (element.getText().equals(colorText)) {
-                element.click();
-            }
-        }
+    public List<WebElement> getColorAndMetalOptions() {
+        return colorAndMetalOptions;
     }
 
-    public void clickMetalDropdown() {
-        metalDropdown.click();
+    public List<WebElement> getVegetableCheckboxes() {
+        return vegetableCheckboxes;
     }
 
-    public void selectMetalDropdown(String metalText) {
-        for (WebElement element : colorAndMetalOptions) {
-            if (element.getText().equals(metalText)) {
-                element.click();
-            }
-        }
+    public WebElement getColorDropdown() {
+        return colorDropdown;
     }
 
-    public void clickVegetablesDropdown() {
-        vegetablesDropdown.click();
+    public WebElement getMetalDropdown() {
+        return metalDropdown;
     }
 
-    public void selectVegetablesCheckbox(List<String> vegetablesText) {
-        for (WebElement element : vegetableCheckboxes) {
-            if (vegetablesText.contains(element.getText())) {
+    public WebElement getVegetablesDropdown() {
+        return vegetablesDropdown;
+    }
+
+    public void selectWebElement(List<WebElement> webElements, List<String> webElementName) {
+        for (WebElement element : webElements) {
+            if (webElementName.contains(element.getText())) {
                 element.click();
             }
         }
@@ -93,7 +80,7 @@ public class MetalAndColorPage extends AbstractPage {
 
     public void uncheckVegetables() {
         for (WebElement element : vegetableCheckboxes) {
-            if (element.getText().contains("Vegetables")) {
+            if (element.getText().contains(properties.getProperty("default"))) {
                 element.click();
             }
         }
@@ -104,6 +91,6 @@ public class MetalAndColorPage extends AbstractPage {
     }
 
     public List<WebElement> getResults() {
-        return results;
+       return results;
     }
 }

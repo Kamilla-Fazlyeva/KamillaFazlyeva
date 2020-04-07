@@ -6,10 +6,6 @@ import org.openqa.selenium.support.FindBy;
 
 public class HomePage extends AbstractPage {
 
-    public HomePage(WebDriver driver) {
-        super(driver);
-    }
-
     private static final String URL = "https://jdi-testing.github.io/jdi-light/index.html";
 
     @FindBy(id = "user-icon")
@@ -26,6 +22,10 @@ public class HomePage extends AbstractPage {
 
     @FindBy(id = "user-name")
     private WebElement userNameText;
+
+    public HomePage(WebDriver driver) {
+        super(driver);
+    }
 
     public void open() {
         driver.get(URL);

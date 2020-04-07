@@ -1,0 +1,1 @@
+{"uuid":"fca1c035-0f93-4f3e-882a-092c4a720e61","name":"Homework2 test suite","children":["32b63890-4151-4e13-b14e-14823f9cfca1"],"befores":[{"name":"suiteSetUp","status":"passed","stage":"finished","description":"","steps":[],"attachments":[],"parameters":[],"start":1586192925610,"stop":1586192926778}],"afters":[],"links":[],"start":1586192925561,"stop":1586192972973}

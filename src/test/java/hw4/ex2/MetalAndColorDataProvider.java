@@ -11,23 +11,25 @@ public class MetalAndColorDataProvider {
     public Object[][] testData() {
         return new Object[][]{
                 {MetalAndColorData.builder().setElements(Arrays.asList("Earth"))
-                        .setColors("Yellow").setMetals("Gold").build()},
+                        .setColors(Arrays.asList("Yellow")).setMetals(Arrays.asList("Gold")).build()},
 
                 {MetalAndColorData.builder().setSummary(Arrays.asList("3", "8"))
                         .setVegetables(Arrays.asList("Cucumber", "Tomato")).build()},
 
                 {MetalAndColorData.builder().setSummary(Arrays.asList("3", "2"))
-                        .setElements(Arrays.asList("Wind", "Fire", "Water"))
-                        .setMetals("Bronze").setVegetables(Arrays.asList("Onion")).build()},
+                        .setElements(Arrays.asList("Water", "Wind", "Fire"))
+                        .setMetals(Arrays.asList("Bronze")).setVegetables(Arrays.asList("Onion")).build()},
 
                 {MetalAndColorData.builder().setSummary(Arrays.asList("6", "5"))
-                        .setElements(Arrays.asList("Wind", "Fire","Water"))
-                        .setColors("Green").setMetals("Selen")
+                        .setElements(Arrays.asList("Water"))
+                        .setColors(Arrays.asList("Green")).setMetals(Arrays.asList("Selen"))
                         .setVegetables(Arrays.asList("Cucumber", "Tomato", "Vegetables", "Onion")).build()},
 
                 {MetalAndColorData.builder().setElements(Arrays.asList("Fire"))
-                        .setColors("Blue")
+                        .setColors(Arrays.asList("Blue"))
                         .setVegetables(Arrays.asList("Cucumber", "Tomato", "Vegetables")).build()}
         };
     }
+
+
 }

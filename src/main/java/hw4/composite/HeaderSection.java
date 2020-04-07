@@ -3,17 +3,12 @@ package hw4.composite;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 
 import java.util.List;
 
 public class HeaderSection extends AbstractPageComposite{
 
     protected WebDriver driver;
-
-    public HeaderSection(WebDriver driver) {
-        super(driver);
-    }
 
     @FindBy(css = ".m-l8 > li")
     private List<WebElement> headerItems;
@@ -26,6 +21,10 @@ public class HeaderSection extends AbstractPageComposite{
 
     @FindBy(linkText = "METALS & COLORS")
     private WebElement metalAndColorPage;
+
+    public HeaderSection(WebDriver driver) {
+        super(driver);
+    }
 
     public List<WebElement> getHeaderItems() {
         return this.headerItems;

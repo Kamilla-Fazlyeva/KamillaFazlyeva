@@ -7,8 +7,6 @@ import org.openqa.selenium.WebElement;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import java.util.List;
-
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
@@ -45,7 +43,7 @@ public class ExerciseOne extends BaseClass {
         homePage.getHeaderSection().getTableWithPages().click();
 
         // 6. Check that default value for “Show entries” dropdown is 5
-        assertEquals(tableWithPages.getDefaultValue().getText(), "5");
+        assertEquals(tableWithPages.getTableEntriesText(), "5");
 
         // 7. Select new value for the entries in the dropdown list
         tableWithPages.selectTableEntries("10");
@@ -58,8 +56,7 @@ public class ExerciseOne extends BaseClass {
 
         // 10. Assert the table contains only records with Search field value
         for (WebElement element : tableWithPages.getTableRows()) {
-            System.out.println(element.getText());
-            assertTrue(element.getText().contains(properties.getProperty("search")));
+            assertTrue(element.getText().toLowerCase().contains(properties.getProperty("search")));
         }
     }
 }

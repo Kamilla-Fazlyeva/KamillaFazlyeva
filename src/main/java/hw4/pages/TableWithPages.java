@@ -9,15 +9,8 @@ import java.util.List;
 
 public class TableWithPages extends AbstractPage {
 
-    public TableWithPages(WebDriver driver) {
-        super(driver);
-    }
-
     @FindBy(name = "table-with-pages_length")
     private WebElement tableEntries;
-
-    @FindBy(xpath = "//option[1]")
-    private WebElement defaultValue;
 
     @FindBy(css = ".info-panel-body-log")
     private WebElement logRow;
@@ -25,15 +18,20 @@ public class TableWithPages extends AbstractPage {
     @FindBy(xpath = "//input[@type='search']")
     private WebElement searchField;
 
-    @FindBy(xpath = "//tr//td[2]")
+    @FindBy(css = "tbody > tr")
     private List<WebElement> tableRows;
 
-    public WebElement getDefaultValue() {
-        return defaultValue;
+    public TableWithPages(WebDriver driver) {
+        super(driver);
     }
 
     public String getLogRowText() {
         return logRow.getText();
+    }
+
+    public String getTableEntriesText() {
+        Select defaultValue = new Select(tableEntries);
+        return defaultValue.getFirstSelectedOption().getText();
     }
 
     public void selectTableEntries(String entry) {

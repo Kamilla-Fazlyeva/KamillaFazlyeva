@@ -6,12 +6,12 @@ public class MetalAndColorData {
 
     private List<String> summary;
     private List<String> elements;
-    private String colors;
-    private String metals;
+    private List<String> colors;
+    private List<String> metals;
     private List<String> vegetables;
 
-    public MetalAndColorData(List<String> summary, List<String> elements, String colors,
-                              String metals, List<String> vegetables) {
+    private MetalAndColorData(List<String> summary, List<String> elements, List<String> colors,
+                              List<String> metals, List<String> vegetables) {
         this.summary = summary;
         this.elements = elements;
         this.colors = colors;
@@ -27,11 +27,11 @@ public class MetalAndColorData {
         return elements;
     }
 
-    public String getColors() {
+    public List<String> getColors() {
         return colors;
     }
 
-    public String getMetals() {
+    public List<String> getMetals() {
         return metals;
     }
 
@@ -47,8 +47,8 @@ public class MetalAndColorData {
 
         private List<String> summary;
         private List<String> elements;
-        private String colors;
-        private String metals;
+        private List<String> colors;
+        private List<String> metals;
         private List<String> vegetables;
 
         private MetalAndColorData metalAndColorData;
@@ -66,12 +66,12 @@ public class MetalAndColorData {
             return this;
         }
 
-        public Builder setColors(String colors) {
+        public Builder setColors(List<String> colors) {
             this.colors = colors;
             return this;
         }
 
-        public Builder setMetals(String metals) {
+        public Builder setMetals(List<String> metals) {
             this.metals = metals;
             return this;
         }

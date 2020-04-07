@@ -39,28 +39,34 @@ public class ExerciseTwo extends BaseClass {
 
         // 4. Fill form on the page
         if (metalAndColorData.getSummary() != null) {
-            metalAndColorPage.selectSummaryRadioButtons(metalAndColorData.getSummary());
+            metalAndColorPage.selectWebElement(metalAndColorPage
+                    .getSummaryRadioButtons(), metalAndColorData.getSummary());
         }
 
         if (metalAndColorData.getElements() != null) {
-            metalAndColorPage.selectElementsCheckbox(metalAndColorData.getElements());
+            metalAndColorPage.selectWebElement(metalAndColorPage
+                    .getElementsCheckboxes(), metalAndColorData.getElements(
+            ));
         }
 
         if (metalAndColorData.getColors() != null) {
-            metalAndColorPage.clickColorDropdown();
-            metalAndColorPage.selectColorDropdown(metalAndColorData.getColors());
+            metalAndColorPage.getColorDropdown().click();
+            metalAndColorPage.selectWebElement(metalAndColorPage
+                    .getColorAndMetalOptions(), metalAndColorData.getColors());
         }
 
         if (metalAndColorData.getMetals() != null) {
-            metalAndColorPage.clickMetalDropdown();
-            metalAndColorPage.selectMetalDropdown(metalAndColorData.getMetals());
+            metalAndColorPage.getMetalDropdown().click();
+            metalAndColorPage.selectWebElement(metalAndColorPage
+                    .getColorAndMetalOptions(), metalAndColorData.getMetals());
         }
 
 
         if (metalAndColorData.getVegetables() != null) {
-            metalAndColorPage.clickVegetablesDropdown();
+            metalAndColorPage.getVegetablesDropdown().click();
             metalAndColorPage.uncheckVegetables();
-            metalAndColorPage.selectVegetablesCheckbox(metalAndColorData.getVegetables());
+            metalAndColorPage.selectWebElement(metalAndColorPage
+                    .getVegetableCheckboxes(), metalAndColorData.getVegetables());
 
         }
 
@@ -68,28 +74,27 @@ public class ExerciseTwo extends BaseClass {
         metalAndColorPage.clickSubmitButton();
 
         // 6. Check Results block output on the right-side
-        for (WebElement element : metalAndColorPage.getResults()) {
+        for (WebElement result : metalAndColorPage.getResults()) {
 
-            if (metalAndColorData.getSummary() != null && metalAndColorPage.getResults().contains("Summary")) {
-                assertTrue(metalAndColorPage.getResults().contains(metalAndColorData.getSummary()));
+            if (metalAndColorData.getSummary() != null && result.getText().contains("Summary")) {
+                assertTrue(result.getText().contains(metalAndColorPage.getSummarySum().summarySum(metalAndColorData.getSummary())));
             }
 
-            if (metalAndColorData.getElements() != null && metalAndColorPage.getResults().contains("Elements")) {
-                assertTrue(metalAndColorPage.getResults().contains(metalAndColorData.getElements()));
+            if (metalAndColorData.getElements() != null && result.getText().contains("Elements")) {
+                assertTrue(result.getText().contains(String.join(", ", metalAndColorData.getElements())));
             }
 
-            if (metalAndColorData.getColors() != null && metalAndColorPage.getResults().contains("Colors")) {
-                assertTrue(metalAndColorPage.getResults().contains(metalAndColorData.getColors()));
+            if (metalAndColorData.getColors() != null && result.getText().contains("Colors")) {
+                assertTrue(result.getText().contains(String.join(", ", metalAndColorData.getColors())));
             }
 
-            if (metalAndColorData.getMetals() != null && metalAndColorPage.getResults().contains("Metals")) {
-                assertTrue(metalAndColorPage.getResults().contains(metalAndColorData.getMetals()));
+            if (metalAndColorData.getMetals() != null && result.getText().contains("Metals")) {
+                assertTrue(result.getText().contains(String.join(",", metalAndColorData.getMetals())));
             }
 
-            if (metalAndColorData.getVegetables() != null && metalAndColorPage.getResults().contains("Vegetables")) {
-                assertTrue(metalAndColorPage.getResults().contains(metalAndColorData.getVegetables()));
+            if (metalAndColorData.getVegetables() != null && result.getText().contains("Vegetables")) {
+                assertTrue(result.getText().contains(String.join(", ", metalAndColorData.getVegetables())));
             }
-
         }
     }
 }
