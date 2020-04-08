@@ -20,12 +20,13 @@
         <webdrivermanager.version>3.8.1</webdrivermanager.version>
         <assertj.version>3.15.0</assertj.version>
         <common-io.version>2.6</common-io.version>
+        <selenide-version>5.5.0</selenide-version>
 
         <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
         <maven-surefire-plugin.version>2.22.2</maven-surefire-plugin.version>
     </properties>
 
-    <profiles>
+     <profiles>
         <profile>
             <id>additive</id>
             <activation>
@@ -114,6 +115,36 @@
                 <suite.xml>src/test/resources/hw3/ExerciseTwoTestSuite.xml</suite.xml>
             </properties>
         </profile>
+       
+       <profile>
+            <id>Homework4Tests</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <suite.xml>src/test/resources/hw4/Homework4TestSuite.xml</suite.xml>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>Homework4Exercise1</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <suite.xml>src/test/resources/hw4/ExerciseOneTestSuite.xml</suite.xml>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>Homework4Exercise2</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <suite.xml>src/test/resources/hw4/ExerciseTwoTestSuite.xml</suite.xml>
+            </properties>
+        </profile>
     </profiles>
 
     <dependencies>
@@ -156,6 +187,11 @@
             <groupId>org.assertj</groupId>
             <artifactId>assertj-core</artifactId>
             <version>${assertj.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.codeborne</groupId>
+            <artifactId>selenide</artifactId>
+            <version>${selenide-version}</version>
         </dependency>
     </dependencies>
 
