@@ -55,15 +55,15 @@ public class Exercise2 extends BaseClass {
         // 9.1 Assert that for each checkbox there is an individual log row
         // and value is corresponded to the status of checkbox
         differentElementsAsserts.shouldReturnSelectedCheckbox();
-        differentElementsPageSteps.shouldReturnLogRowText("Water", "true");
-        differentElementsPageSteps.shouldReturnLogRowText("Wind", "true");
+        DifferentElementsAsserts.shouldReturnLogRowText("Water", "true");
+        DifferentElementsAsserts.shouldReturnLogRowText("Wind", "true");
 
         // 9.2 Assert that for radio button there is a log row and value is corresponded to the status of radio button
         differentElementsAsserts.shouldReturnSelectedRadioButton();
-        differentElementsPageSteps.shouldReturnLogRowText("metal", "Selen");
+        DifferentElementsAsserts.shouldReturnLogRowText("metal", "Selen");
 
         // 9.3 Assert that for dropdown there is a log row and value is corresponded to the selected value
         differentElementsAsserts.shouldReturnSelectedDropdown();
-        differentElementsPageSteps.shouldReturnLogRowText("Colors", "Yellow");
+        DifferentElementsAsserts.shouldReturnLogRowText("Colors", "Yellow");
     }
 }
