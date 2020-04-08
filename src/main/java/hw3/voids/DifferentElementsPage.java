@@ -13,10 +13,10 @@ public class DifferentElementsPage extends AbstractPage {
         super(driver);
     }
 
-    @FindBy(css = "input[type='checkbox']")
+    @FindBy(css = ".label-checkbox")
     private List<WebElement> checkboxes;
 
-    @FindBy(css = "input[type='radio']")
+    @FindBy(css = ".label-radio")
     private List<WebElement> radioButtons;
 
     @FindBy(xpath = "//select[@class='uui-form-element']")
