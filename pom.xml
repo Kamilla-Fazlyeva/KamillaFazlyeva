@@ -25,6 +25,97 @@
         <maven-surefire-plugin.version>2.22.2</maven-surefire-plugin.version>
     </properties>
 
+    <profiles>
+        <profile>
+            <id>additive</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <suite.xml>src/test/resources/hw1/Group1TestSuite.xml</suite.xml>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>multiplicative</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <suite.xml>src/test/resources/hw1/Group2TestSuite.xml</suite.xml>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>allTests</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <suite.xml>src/test/resources/hw1/AllTestsSuite.xml</suite.xml>
+            </properties>
+        </profile>
+        <profile>
+            <id>Exercise1</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <suite.xml>src/test/resources/hw2/ExerciseOneTestSuite.xml</suite.xml>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>Exercise2</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <suite.xml>src/test/resources/hw2/ExerciseTwoTestSuite.xml</suite.xml>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>Homework2</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <suite.xml>src/test/resources/hw2/Homework2TestSuite.xml</suite.xml>
+            </properties>
+        </profile>
+      
+      <profile>
+            <id>Homework3Tests</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                    <suite.xml>src/test/resources/hw3/Homework3TestSuite.xml</suite.xml>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>Homework3Exercise1</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+            <suite.xml>src/test/resources/hw3/ExerciseOneTestSuite.xml</suite.xml>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>Homework3Exercise2</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <suite.xml>src/test/resources/hw3/ExerciseTwoTestSuite.xml</suite.xml>
+            </properties>
+        </profile>
+    </profiles>
+
     <dependencies>
         <dependency>
             <groupId>org.testng</groupId>
