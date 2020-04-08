@@ -22,8 +22,8 @@ public class DifferentElementsPage extends AbstractPage {
     @FindBy(xpath = "//select[@class='uui-form-element']")
     private WebElement dropdownSelect;
 
-    @FindBy(css = ".info-panel-body-log")
-    private WebElement logRow;
+    @FindBy(css = ".logs > li")
+    private List<WebElement> logRow;
 
     public List<WebElement> getCheckboxes() {
         return checkboxes;
@@ -58,8 +58,8 @@ public class DifferentElementsPage extends AbstractPage {
         dropdown.selectByVisibleText(colorText);
     }
 
-    public String getLogRowText() {
-        return logRow.getText();
+    public List<WebElement> getLogRow() {
+        return logRow;
     }
 
 }
