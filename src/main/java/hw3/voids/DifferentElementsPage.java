@@ -13,17 +13,17 @@ public class DifferentElementsPage extends AbstractPage {
         super(driver);
     }
 
-    @FindBy(css = "input[type='checkbox']")
+    @FindBy(css = ".label-checkbox")
     private List<WebElement> checkboxes;
 
-    @FindBy(css = "input[type='radio']")
+    @FindBy(css = ".label-radio")
     private List<WebElement> radioButtons;
 
     @FindBy(xpath = "//select[@class='uui-form-element']")
     private WebElement dropdownSelect;
 
-    @FindBy(css = ".info-panel-body-log")
-    private WebElement logRow;
+    @FindBy(css = ".logs > li")
+    private List<WebElement> logRow;
 
     public List<WebElement> getCheckboxes() {
         return checkboxes;
@@ -58,8 +58,8 @@ public class DifferentElementsPage extends AbstractPage {
         dropdown.selectByVisibleText(colorText);
     }
 
-    public String getLogRowText() {
-        return logRow.getText();
+    public List<WebElement> getLogRow() {
+        return logRow;
     }
 
 }
