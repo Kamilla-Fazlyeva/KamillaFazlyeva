@@ -24,7 +24,11 @@ public class DifferentElementsAsserts extends AbstractBaseClass {
         assertTrue(differentElementsPage.getDropdownSelect().isSelected());
     }
 
-    public void shouldReturnLogRowText(String logRowText) {
-        assertTrue(differentElementsPage.getLogRowText().contains(logRowText));
+    public void shouldReturnLogRowText(String elementName, String logRowText) {
+        for (WebElement element : differentElementsPage.getLogRow()) {
+            if(element.getText().contains(elementName)) {
+                assertTrue(element.getText().contains(logRowText));
+            }
+        }
     }
 }
