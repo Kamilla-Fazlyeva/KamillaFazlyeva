@@ -177,6 +177,16 @@
                  <suite.xml>src/test/resources/hw5/ExerciseTwoTestSuite.xml</suite.xml>
              </properties>
          </profile>
+
+         <profile>
+             <id>Homework5Exercise1Failed</id>
+             <activation>
+                 <activeByDefault>false</activeByDefault>
+             </activation>
+             <properties>
+                 <suite.xml>src/test/resources/hw5/ExerciseOneFailedTest.xml</suite.xml>
+             </properties>
+         </profile>
     </profiles>
 
     <dependencies>
@@ -247,7 +257,7 @@
                 <version>${maven-surefire-plugin.version}</version>
                 <configuration>
                     <suiteXmlFiles>
-                        <xmlFile>${suite.xml}</xmlFile>
+                        <suiteXmlFilemlFile>${suite.xml}</suiteXmlFilemlFile>
                     </suiteXmlFiles>
                     <argLine>
                         -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"

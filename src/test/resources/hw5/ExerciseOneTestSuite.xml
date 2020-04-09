@@ -4,7 +4,6 @@
     <test name="Exercise1 test">
         <classes>
             <class name="hw5.ex1.Exercise1"></class>
-            <class name="hw5.ex1.Exercise2"></class>
         </classes>
     </test>
 </suite>

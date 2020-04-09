@@ -30,7 +30,7 @@ public class Exercise1TestFailed extends BaseClass {
         homePageSteps.open();
 
         // 2. Assert Browser title
-        homePageSteps.shouldReturnPageTitle("Home Page");
+        homePageSteps.shouldReturnPageTitle("Home Page1");
 
         // 3. Perform login
         homePageSteps.login(properties.getProperty("username"), properties.getProperty("password"));
