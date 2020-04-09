@@ -2,8 +2,8 @@ package hw3.ex2;
 
 import hw3.base.AbstractBaseClass;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
-import static org.testng.Assert.assertFalse;
 import static org.testng.Assert.assertTrue;
 
 public class DifferentElementsAsserts extends AbstractBaseClass {
