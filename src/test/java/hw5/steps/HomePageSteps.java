@@ -44,8 +44,7 @@ public class HomePageSteps extends AbstractBaseClass {
     }
 
     @Step("Texts should be displayed on the header section")
-    public void shouldReturnHeaderSectionItemsTexts() {
-        List<String> expectedHeaderItemsTexts = Arrays.asList("HOME", "CONTACT FORM", "SERVICE", "METALS & COLORS");
+    public void shouldReturnHeaderSectionItemsTexts(List<String> expectedHeaderItemsTexts) {
         sa.assertEquals(homePage.getHeaderSection().getHeaderItemsTexts(), expectedHeaderItemsTexts);
     }
 
@@ -57,16 +56,7 @@ public class HomePageSteps extends AbstractBaseClass {
     }
 
     @Step("Texts should be displayed under the icons")
-    public void shouldReturnIconTexts() {
-        List<String> expectedIconTexts = Arrays.asList("To include good practices\n" +
-                        "and ideas from successful\n" +
-                        "EPAM project",
-                "To be flexible and\n" +
-                        "customizable", "To be multiplatform",
-                "Already have good base\n"+
-                        "(about 20 internal and\n" +
-                        "some external projects),\n" +
-                        "wish to get more…");
+    public void shouldReturnIconTexts(List<String> expectedIconTexts) {
         sa.assertEquals(homePage.getIconText(), expectedIconTexts);
     }
 

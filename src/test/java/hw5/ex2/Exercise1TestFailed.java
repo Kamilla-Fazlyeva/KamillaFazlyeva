@@ -8,6 +8,8 @@ import io.qameta.allure.Story;
 import org.testng.annotations.*;
 import org.testng.asserts.SoftAssert;
 
+import java.util.Arrays;
+
 @Listeners({AllureScreenshotListener.class})
 public class Exercise1TestFailed extends BaseClass {
 
@@ -40,13 +42,21 @@ public class Exercise1TestFailed extends BaseClass {
 
         //5. Assert that there are 4 items on the header section are displayed and they have proper texts
         homePageSteps.shouldReturnHeaderSectionItems();
-        homePageSteps.shouldReturnHeaderSectionItemsTexts();
+        homePageSteps.shouldReturnHeaderSectionItemsTexts(Arrays.asList("HOME", "CONTACT FORM", "SERVICE", "METALS & COLORS"));
 
         // 6. Assert that there are 4 images on the Index Page and they are displayed
         homePageSteps.shouldReturnImagesIndexPage();
 
         // 7. Assert that there are 4 texts on the Index Page under icons and they have proper text
-        homePageSteps.shouldReturnIconTexts();
+        homePageSteps.shouldReturnIconTexts(Arrays.asList("To include good practices\n" +
+                        "and ideas from successful\n" +
+                        "EPAM project",
+                "To be flexible and\n" +
+                        "customizable", "To be multiplatform",
+                "Already have good base\n"+
+                        "(about 20 internal and\n" +
+                        "some external projects),\n" +
+                        "wish to get more…"));
 
         // 8. Assert that there is the iframe with “Frame Button” exist
         homePageSteps.shouldReturnFrame();

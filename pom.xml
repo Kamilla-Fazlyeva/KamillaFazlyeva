@@ -91,7 +91,7 @@
       <profile>
             <id>Homework3Tests</id>
             <activation>
-                <activeByDefault>true</activeByDefault>
+                <activeByDefault>false</activeByDefault>
             </activation>
             <properties>
                     <suite.xml>src/test/resources/hw3/Homework3TestSuite.xml</suite.xml>

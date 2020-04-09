@@ -1,7 +1,7 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
-<suite name="Exercise1 test suite">
+<suite name="Exercise_1 test suite">
 
-    <test name="Exercise1 test">
+    <test name="Exercise_1 test">
         <classes>
             <class name="hw5.ex2.Exercise1TestFailed"></class>
         </classes>
