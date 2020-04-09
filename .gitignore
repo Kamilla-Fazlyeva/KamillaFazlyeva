@@ -23,5 +23,5 @@
 **/.allure
 **/allure-report
 
-#Images
+# Images
 **/*.png
