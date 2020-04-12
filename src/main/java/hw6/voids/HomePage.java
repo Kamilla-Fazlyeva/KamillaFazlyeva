@@ -1,11 +1,10 @@
-package hw3.voids;
+package hw6.voids;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class HomePage extends AbstractPage {
 
@@ -32,12 +31,6 @@ public class HomePage extends AbstractPage {
     @FindBy(className = "benefit-txt")
     private List<WebElement> iconTexts;
 
-    @FindBy(id = "frame")
-    private WebElement iframe;
-
-    @FindBy(id = "frame-button")
-    private WebElement frameButton;
-
     public HomePage(WebDriver driver) {
         super(driver);
     }
@@ -56,35 +49,4 @@ public class HomePage extends AbstractPage {
     public String getUserNameText() {
         return userNameText.getText();
     }
-
-    public String getTitle() {
-        return driver.getTitle();
-    }
-
-    public List<WebElement> getImagesIndexPage() {
-        return this.imagesIndexPage;
-    }
-
-    public List<String> getIconText() {
-        return iconTexts.stream()
-                .map(WebElement::getText)
-                .collect(Collectors.toList());
-    }
-
-    public WebElement getFrame() {
-        return this.iframe;
-    }
-
-    public void switchToFrame() {
-        driver.switchTo().frame(iframe);
-    }
-
-    public WebElement  getFrameButton() {
-        return this.frameButton;
-    }
-
-    public void switchToOriginalPage() {
-        driver.switchTo().defaultContent();
-    }
-
 }

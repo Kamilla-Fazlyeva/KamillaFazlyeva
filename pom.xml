@@ -15,12 +15,13 @@
         <java.target.version>1.8</java.target.version>
 
         <testng.version>7.1.0</testng.version>
-        <testng.version>7.1.0</testng.version>
         <selenium.version>3.141.59</selenium.version>
         <webdrivermanager.version>3.8.1</webdrivermanager.version>
         <assertj.version>3.15.0</assertj.version>
         <common-io.version>2.6</common-io.version>
         <selenide-version>5.5.0</selenide-version>
+        <cucumber.version>5.6.0 </cucumber.version>
+        <allure.version>2.13.2</allure.version>
 
         <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
         <maven-surefire-plugin.version>2.22.2</maven-surefire-plugin.version>
@@ -145,6 +146,16 @@
                 <suite.xml>src/test/resources/hw4/ExerciseTwoTestSuite.xml</suite.xml>
             </properties>
         </profile>
+
+         <profile>
+             <id>Homework6</id>
+             <activation>
+                 <activeByDefault>false</activeByDefault>
+             </activation>
+             <properties>
+                 <suite.xml>src/test/resources/hw6/CucumberSuite.xml</suite.xml>
+             </properties>
+         </profile>
     </profiles>
 
     <dependencies>
@@ -192,6 +203,33 @@
             <groupId>com.codeborne</groupId>
             <artifactId>selenide</artifactId>
             <version>${selenide-version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-java</artifactId>
+            <version>${cucumber.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-testng</artifactId>
+            <version>${cucumber.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-cucumber5-jvm</artifactId>
+            <version>${allure.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-testng</artifactId>
+            <version>${allure.version}</version>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 

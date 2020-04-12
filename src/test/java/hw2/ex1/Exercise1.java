@@ -81,7 +81,7 @@ public class Exercise1 extends BaseClass {
 
         sa.assertEquals(actualIconTexts, expectedIconTexts);
 
-        // 8, 9, 10 steps
+        // 8, 9, 10 hw6.steps
 
         WebElement iframe = driver.findElement(By.id("frame"));
 

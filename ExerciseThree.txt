@@ -6,7 +6,7 @@ Core layer /src/test/java/hw4/base
            /src/main/java/hw4/composite
            src/main/java/hw4/builder
 
-Test layer is implemented and located separately in the distinct package, but test steps maybe take out to another
+Test layer is implemented and located separately in the distinct package, but test hw6.steps maybe take out to another
 package in one java class. That would be part of the business layer.
 The core layer, including loading the driver, description of pages, are fully implemented.
 Configuration data (username and password) are stored in the property file.
