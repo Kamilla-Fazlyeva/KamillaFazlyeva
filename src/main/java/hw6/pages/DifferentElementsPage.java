@@ -1,4 +1,4 @@
-package hw6.voids;
+package hw6.pages;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -37,17 +37,9 @@ public class DifferentElementsPage extends AbstractPage {
         return dropdownSelect;
     }
 
-    public void selectCheckbox(String checkboxName) {
-       for (WebElement element : checkboxes) {
-           if (element.getText().equals(checkboxName)) {
-               element.click();
-           }
-       }
-    }
-
-    public void selectRadioButton(String radioButtonName) {
-        for (WebElement element : radioButtons) {
-            if (element.getText().equals(radioButtonName)) {
+    public void selectWebElement(List<WebElement> webElements, String webElementName) {
+        for (WebElement element : webElements) {
+            if (webElementName.contains(element.getText())) {
                 element.click();
             }
         }

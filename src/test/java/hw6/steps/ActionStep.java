@@ -22,12 +22,12 @@ public class ActionStep extends AbstractBaseStep{
 
     @And("I click {string} checkbox")
     public void iClickCheckbox(String checkboxName) {
-        differentElementsPage.selectCheckbox(checkboxName);
+        differentElementsPage.selectWebElement(differentElementsPage.getCheckboxes(), checkboxName);
     }
 
     @And("I click {string} radiobutton")
     public void iClickRadioButton(String radioButtonName) {
-        differentElementsPage.selectRadioButton(radioButtonName);
+        differentElementsPage.selectWebElement(differentElementsPage.getRadioButtons(), radioButtonName);
     }
 
     @And("I select {string} dropdown")

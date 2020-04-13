@@ -76,9 +76,15 @@ public class AssertionStep extends AbstractBaseStep {
     public void userTableShouldContainValues(DataTable dataTable) {
         List<Map<String, String>> values = dataTable.asMaps(String.class, String.class);
         for (int i = 0; i < 6; i++) {
-            if (userTablePage.getNumberTypeText(i).equals(values.get(i).get("Number"))) {
-                assertEquals(userTablePage.getUsernameText(i), values.get(i).get("User"));
-                assertEquals(userTablePage.getDescriptionText(i).replaceAll("\n", " "),
+
+            if (userTablePage.getWebElementText(userTablePage.getNumberType(), i)
+                    .equals(values.get(i).get("Number"))) {
+
+                assertEquals(userTablePage.getWebElementText(userTablePage
+                        .getUsernames(), i), values.get(i).get("User"));
+
+                assertEquals(userTablePage.getWebElementText(userTablePage
+                                .getDescription(), i).replaceAll("\n", " "),
                         values.get(i).get("Description"));
             }
         }

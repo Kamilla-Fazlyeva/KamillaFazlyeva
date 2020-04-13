@@ -1,4 +1,4 @@
-package hw6.voids;
+package hw6.pages;
 
 import hw6.composite.HeaderSection;
 import org.openqa.selenium.WebDriver;

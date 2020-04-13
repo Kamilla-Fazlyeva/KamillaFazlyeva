@@ -1,6 +1,6 @@
 package hw6.steps;
 
-import hw6.voids.HomePage;
+import hw6.pages.HomePage;
 import hw6.driver.WebDriverSingleton;
 import io.cucumber.java.en.Given;
 

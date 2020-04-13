@@ -1,9 +1,9 @@
 package hw6.steps;
 
-import hw6.voids.DifferentElementsPage;
-import hw6.voids.HomePage;
+import hw6.pages.DifferentElementsPage;
+import hw6.pages.HomePage;
 import hw6.driver.WebDriverSingleton;
-import hw6.voids.UserTablePage;
+import hw6.pages.UserTablePage;
 
 public abstract class AbstractBaseStep {
 

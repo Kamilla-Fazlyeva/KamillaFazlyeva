@@ -1,4 +1,4 @@
-package hw6.voids;
+package hw6.pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -35,6 +35,10 @@ public class UserTablePage extends AbstractPage {
         super(driver);
     }
 
+    public List<WebElement> getNumberType() {
+        return numberType;
+    }
+
     public List<WebElement> getNumberTypeDropdowns() {
         return numberTypeDropdowns;
     }
@@ -51,16 +55,8 @@ public class UserTablePage extends AbstractPage {
         return checkboxes;
     }
 
-   public String getNumberTypeText(Integer number) {
-        return numberType.get(number).getText();
-   }
-
-    public String getUsernameText(Integer number) {
-        return usernames.get(number).getText();
-    }
-
-    public String getDescriptionText(Integer number) {
-        return description.get(number).getText();
+    public String getWebElementText(List<WebElement> webElements, Integer number) {
+        return webElements.get(number).getText();
     }
 
     public String getTypeOptions() {
