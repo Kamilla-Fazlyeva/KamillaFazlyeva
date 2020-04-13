@@ -17,3 +17,11 @@
 
 # IntelliJ
 /.idea/
+
+# Allure
+**/allure-results
+**/.allure
+**/allure-report
+
+# Images
+**/*.png

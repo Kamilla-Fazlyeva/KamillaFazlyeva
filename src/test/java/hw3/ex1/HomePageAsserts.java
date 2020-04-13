@@ -47,7 +47,7 @@ public class HomePageAsserts extends AbstractBaseClass {
                         "EPAM project",
                 "To be flexible and\n" +
                         "customizable", "To be multiplatform",
-                "Already have good base\n"+
+                "Already have good base\n" +
                         "(about 20 internal and\n" +
                         "some external projects),\n" +
                         "wish to get more…");
