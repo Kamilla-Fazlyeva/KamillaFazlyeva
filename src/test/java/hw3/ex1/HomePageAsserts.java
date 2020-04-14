@@ -1,12 +1,16 @@
 package hw3.ex1;
 
 import hw3.base.AbstractBaseClass;
+import hw3.enums.HeaderSectionItems;
+import hw3.enums.IconTexts;
+import hw3.enums.LeftSectionItems;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.asserts.SoftAssert;
 
-import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class HomePageAsserts extends AbstractBaseClass {
 
@@ -31,7 +35,9 @@ public class HomePageAsserts extends AbstractBaseClass {
     }
 
     public void shouldReturnHeaderSectionItemsTexts() {
-        List<String> expectedHeaderItemsTexts = Arrays.asList("HOME", "CONTACT FORM", "SERVICE", "METALS & COLORS");
+        List<String> expectedHeaderItemsTexts = Stream.of(HeaderSectionItems.values())
+                .map(HeaderSectionItems::getText)
+                .collect(Collectors.toList());
         sa.assertEquals(homePage.getHeaderSection().getHeaderItemsTexts(), expectedHeaderItemsTexts);
     }
 
@@ -42,15 +48,9 @@ public class HomePageAsserts extends AbstractBaseClass {
     }
 
     public void shouldReturnIconTexts() {
-        List<String> expectedIconTexts = Arrays.asList("To include good practices\n" +
-                        "and ideas from successful\n" +
-                        "EPAM project",
-                "To be flexible and\n" +
-                        "customizable", "To be multiplatform",
-                "Already have good base\n" +
-                        "(about 20 internal and\n" +
-                        "some external projects),\n" +
-                        "wish to get more…");
+        List<String> expectedIconTexts = Stream.of(IconTexts.values())
+                .map(IconTexts::getText)
+                .collect(Collectors.toList());
         sa.assertEquals(homePage.getIconText(), expectedIconTexts);
     }
 
@@ -69,8 +69,9 @@ public class HomePageAsserts extends AbstractBaseClass {
     }
 
     public void shouldReturnLeftSectionItemsTexts() {
-        List<String> expectedLeftSectionItems = Arrays.asList("Home", "Contact form", "Service",
-                "Metals & Colors", "Elements packs");
+        List<String> expectedLeftSectionItems = Stream.of(LeftSectionItems.values())
+                .map(LeftSectionItems::getItemText)
+                .collect(Collectors.toList());
         sa.assertEquals(homePage.getLeftSection().getLeftSectionItemsTexts(), expectedLeftSectionItems);
     }
 

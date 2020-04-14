@@ -3,11 +3,9 @@ package hw3.voids;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class HomePage extends AbstractPage {
 
@@ -68,9 +66,11 @@ public class HomePage extends AbstractPage {
     }
 
     public List<String> getIconText() {
-        return iconTexts.stream()
-                .map(WebElement::getText)
-                .collect(Collectors.toList());
+        List<String> iconItemsTexts = new ArrayList<>();
+        for (WebElement element : iconTexts) {
+            iconItemsTexts.add(element.getText().replaceAll("\n", " "));
+        }
+        return iconItemsTexts;
     }
 
     public WebElement getFrame() {
