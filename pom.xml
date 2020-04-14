@@ -20,10 +20,12 @@
         <webdrivermanager.version>3.8.1</webdrivermanager.version>
         <assertj.version>3.15.0</assertj.version>
         <common-io.version>2.6</common-io.version>
-        <selenide-version>5.5.0</selenide-version>
+        <allure.version>2.13.2</allure.version>
+        <aspectj.version>1.8.10</aspectj.version>
 
         <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
         <maven-surefire-plugin.version>2.22.2</maven-surefire-plugin.version>
+        <allure-maven-plugin.version>2.10.0</allure-maven-plugin.version>
     </properties>
 
      <profiles>
@@ -89,7 +91,7 @@
       <profile>
             <id>Homework3Tests</id>
             <activation>
-                <activeByDefault>true</activeByDefault>
+                <activeByDefault>false</activeByDefault>
             </activation>
             <properties>
                     <suite.xml>src/test/resources/hw3/Homework3TestSuite.xml</suite.xml>
@@ -145,6 +147,46 @@
                 <suite.xml>src/test/resources/hw4/ExerciseTwoTestSuite.xml</suite.xml>
             </properties>
         </profile>
+
+         <profile>
+             <id>Homework5Tests</id>
+             <activation>
+                 <activeByDefault>true</activeByDefault>
+             </activation>
+             <properties>
+                 <suite.xml>src/test/resources/hw5/Homework5TestSuite.xml</suite.xml>
+             </properties>
+         </profile>
+
+         <profile>
+             <id>Homework5Exercise1</id>
+             <activation>
+                 <activeByDefault>false</activeByDefault>
+             </activation>
+             <properties>
+                 <suite.xml>src/test/resources/hw5/ExerciseOneTestSuite.xml</suite.xml>
+             </properties>
+         </profile>
+
+         <profile>
+             <id>Homework5Exercise2</id>
+             <activation>
+                 <activeByDefault>false</activeByDefault>
+             </activation>
+             <properties>
+                 <suite.xml>src/test/resources/hw5/ExerciseTwoTestSuite.xml</suite.xml>
+             </properties>
+         </profile>
+
+         <profile>
+             <id>Homework5Exercise1Failed</id>
+             <activation>
+                 <activeByDefault>false</activeByDefault>
+             </activation>
+             <properties>
+                 <suite.xml>src/test/resources/hw5/ExerciseOneFailedTest.xml</suite.xml>
+             </properties>
+         </profile>
     </profiles>
 
     <dependencies>
@@ -188,10 +230,12 @@
             <artifactId>assertj-core</artifactId>
             <version>${assertj.version}</version>
         </dependency>
+
         <dependency>
-            <groupId>com.codeborne</groupId>
-            <artifactId>selenide</artifactId>
-            <version>${selenide-version}</version>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-testng</artifactId>
+            <version>${allure.version}</version>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 
@@ -213,8 +257,28 @@
                 <version>${maven-surefire-plugin.version}</version>
                 <configuration>
                     <suiteXmlFiles>
-                        <xmlFile>${suite.xml}</xmlFile>
+                        <suiteXmlFilemlFile>${suite.xml}</suiteXmlFilemlFile>
                     </suiteXmlFiles>
+                    <argLine>
+                        -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
+                    </argLine>
+                </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.aspectj</groupId>
+                        <artifactId>aspectjweaver</artifactId>
+                        <version>${aspectj.version}</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
+
+            <plugin>
+                <groupId>io.qameta.allure</groupId>
+                <artifactId>allure-maven</artifactId>
+                <version>${allure-maven-plugin.version}</version>
+                <configuration>
+                    <reportVersion>${allure.version}</reportVersion>
+                    <resultsDirectory>${project.basedir}/allure-results</resultsDirectory>
                 </configuration>
             </plugin>
         </plugins>

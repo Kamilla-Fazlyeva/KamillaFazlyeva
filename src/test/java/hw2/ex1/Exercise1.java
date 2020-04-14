@@ -65,7 +65,7 @@ public class Exercise1 extends BaseClass {
                         "EPAM project",
                 "To be flexible and\n" +
                         "customizable", "To be multiplatform",
-                "Already have good base\n"+
+                "Already have good hw5.base\n"+
                         "(about 20 internal and\n" +
                         "some external projects),\n" +
                         "wish to get more…");
@@ -81,7 +81,7 @@ public class Exercise1 extends BaseClass {
 
         sa.assertEquals(actualIconTexts, expectedIconTexts);
 
-        // 8, 9, 10 steps
+        // 8, 9, 10 hw5.steps
 
         WebElement iframe = driver.findElement(By.id("frame"));
 
