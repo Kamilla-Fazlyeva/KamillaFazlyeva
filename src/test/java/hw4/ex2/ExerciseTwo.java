@@ -8,6 +8,7 @@ import org.openqa.selenium.WebElement;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import static hw4.enums.MetalsAndColors.*;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
@@ -76,23 +77,23 @@ public class ExerciseTwo extends BaseClass {
         // 6. Check Results block output on the right-side
         for (WebElement result : metalAndColorPage.getResults()) {
 
-            if (metalAndColorData.getSummary() != null && result.getText().contains("Summary")) {
+            if (metalAndColorData.getSummary() != null && result.getText().contains(SUMMARY.getValue())) {
                 assertTrue(result.getText().contains(metalAndColorPage.getSummarySum().summarySum(metalAndColorData.getSummary())));
             }
 
-            if (metalAndColorData.getElements() != null && result.getText().contains("Elements")) {
+            if (metalAndColorData.getElements() != null && result.getText().contains(ELEMENTS.getValue())) {
                 assertTrue(result.getText().contains(String.join(", ", metalAndColorData.getElements())));
             }
 
-            if (metalAndColorData.getColors() != null && result.getText().contains("Colors")) {
+            if (metalAndColorData.getColors() != null && result.getText().contains(COLORS.getValue())) {
                 assertTrue(result.getText().contains(String.join(", ", metalAndColorData.getColors())));
             }
 
-            if (metalAndColorData.getMetals() != null && result.getText().contains("Metals")) {
+            if (metalAndColorData.getMetals() != null && result.getText().contains(METALS.getValue())) {
                 assertTrue(result.getText().contains(String.join(",", metalAndColorData.getMetals())));
             }
 
-            if (metalAndColorData.getVegetables() != null && result.getText().contains("Vegetables")) {
+            if (metalAndColorData.getVegetables() != null && result.getText().contains(VEGETABLES.getValue())) {
                 assertTrue(result.getText().contains(String.join(", ", metalAndColorData.getVegetables())));
             }
         }
