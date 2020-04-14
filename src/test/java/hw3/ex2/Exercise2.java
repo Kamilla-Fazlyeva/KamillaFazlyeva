@@ -27,7 +27,7 @@ public class Exercise2 extends BaseClass {
     public void exerciseTwoTest() {
 
         // 1. Open test site by URL
-        homePageSteps.open();
+        driver.get(properties.getProperty("URL"));
 
         // 2. Assert Browser title
         homePageAsserts.shouldReturnPageTitle();

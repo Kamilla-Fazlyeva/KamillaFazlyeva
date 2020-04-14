@@ -9,8 +9,6 @@ import java.util.List;
 
 public class HomePage extends AbstractPage {
 
-    private static final String URL = "https://jdi-testing.github.io/jdi-light/index.html";
-
     @FindBy(id = "user-icon")
     private WebElement userIcon;
 
@@ -40,10 +38,6 @@ public class HomePage extends AbstractPage {
 
     public HomePage(WebDriver driver) {
         super(driver);
-    }
-
-    public void open() {
-        driver.get(URL);
     }
 
     public void login(final String username, final String password) {

@@ -11,7 +11,7 @@ public abstract class AbstractPage {
     protected HeaderSection headerSection;
     protected LeftSection leftSection;
 
-    AbstractPage(WebDriver driver) {
+    public AbstractPage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
         headerSection = new HeaderSection(driver);

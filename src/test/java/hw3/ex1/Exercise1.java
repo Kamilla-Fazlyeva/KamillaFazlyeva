@@ -22,7 +22,7 @@ public class Exercise1 extends BaseClass {
         SoftAssert sa = new SoftAssert();
 
         // 1. Open test site by URL
-        homePageSteps.open();
+        driver.get(properties.getProperty("URL"));
 
         // 2. Assert Browser title
         homePageAsserts.shouldReturnPageTitle();

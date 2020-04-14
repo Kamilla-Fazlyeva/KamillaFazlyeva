@@ -29,7 +29,7 @@ public class Exercise1TestFailed extends BaseClass {
         SoftAssert sa = new SoftAssert();
 
         // 1. Open test site by URL
-        homePageSteps.open();
+        homePageSteps.open(properties.getProperty("URL"));
 
         // 2. Assert Browser title
         homePageSteps.shouldReturnPageTitle("Home Page1");

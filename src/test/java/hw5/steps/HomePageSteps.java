@@ -17,8 +17,8 @@ public class HomePageSteps extends AbstractBaseClass {
     }
 
     @Step("I open JDI site}")
-    public void open() {
-        homePage.open();
+    public void open(String url) {
+        driver.get(url);
     }
 
     @Step("Page title should be '{0}'")

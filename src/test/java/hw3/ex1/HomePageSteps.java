@@ -10,10 +10,6 @@ public class HomePageSteps extends AbstractBaseClass {
         super(driver);
     }
 
-    public void open() {
-        homePage.open();
-    }
-
     public void login(final String username, final String password) {
         homePage.login(username, password);
     }
