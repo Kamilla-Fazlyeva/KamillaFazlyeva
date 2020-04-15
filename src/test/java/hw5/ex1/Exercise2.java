@@ -10,6 +10,9 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
+import static hw3.enums.DifferentElements.*;
+import static hw3.enums.DifferentElements.YELLOW;
+
 @Listeners({AllureScreenshotListener.class})
 public class Exercise2 extends BaseClass {
 
@@ -46,27 +49,27 @@ public class Exercise2 extends BaseClass {
         homePageSteps.openDifferentElementsPage();
 
         // 6. Select checkboxes
-        differentElementsPageSteps.selectCheckbox("Water");
-        differentElementsPageSteps.selectCheckbox("Wind");
+        differentElementsPageSteps.selectCheckbox(WATER.getValue());
+        differentElementsPageSteps.selectCheckbox(WIND.getValue());
 
         // 7. Select radio
-        differentElementsPageSteps.selectRadioButton("Selen");
+        differentElementsPageSteps.selectRadioButton(SELEN.getValue());
 
         // 8. Select in dropdown
-        differentElementsPageSteps.selectDropdown("Yellow");
+        differentElementsPageSteps.selectDropdown(YELLOW.getValue());
 
         // 9.1 Assert that for each checkbox there is an individual log row
         // and value is corresponded to the status of checkbox
         differentElementsPageSteps.shouldReturnSelectedCheckbox();
-        differentElementsPageSteps.shouldReturnLogRowText("Water", "true");
-        differentElementsPageSteps.shouldReturnLogRowText("Wind", "true");
+        differentElementsPageSteps.shouldReturnLogRowText(WATER.getValue(), "true");
+        differentElementsPageSteps.shouldReturnLogRowText(WIND.getValue(), "true");
 
         // 9.2 Assert that for radio button there is a log row and value is corresponded to the status of radio button
         differentElementsPageSteps.shouldReturnSelectedRadioButton();
-        differentElementsPageSteps.shouldReturnLogRowText("metal", "Selen");
+        differentElementsPageSteps.shouldReturnLogRowText(METAL.getValue(), SELEN.getValue());
 
         // 9.3 Assert that for dropdown there is a log row and value is corresponded to the selected value
         differentElementsPageSteps.shouldReturnSelectedDropdown();
-        differentElementsPageSteps.shouldReturnLogRowText("Colors", "Yellow");
+        differentElementsPageSteps.shouldReturnLogRowText(COLORS.getValue(), YELLOW.getValue());
     }
 }

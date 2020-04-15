@@ -1,5 +1,7 @@
 package hw5.ex2;
 
+import hw3.enums.HeaderSectionItems;
+import hw3.enums.IconTexts;
 import hw5.base.AllureScreenshotListener;
 import hw5.base.BaseClass;
 import hw5.steps.HomePageSteps;
@@ -8,7 +10,8 @@ import io.qameta.allure.Story;
 import org.testng.annotations.*;
 import org.testng.asserts.SoftAssert;
 
-import java.util.Arrays;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 @Listeners({AllureScreenshotListener.class})
 public class Exercise1TestFailed extends BaseClass {
@@ -42,21 +45,17 @@ public class Exercise1TestFailed extends BaseClass {
 
         //5. Assert that there are 4 items on the header section are displayed and they have proper texts
         homePageSteps.shouldReturnHeaderSectionItems();
-        homePageSteps.shouldReturnHeaderSectionItemsTexts(Arrays.asList("HOME", "CONTACT FORM", "SERVICE", "METALS & COLORS"));
+        homePageSteps.shouldReturnHeaderSectionItemsTexts(Stream.of(HeaderSectionItems.values())
+                .map(HeaderSectionItems::getText)
+                .collect(Collectors.toList()));
 
         // 6. Assert that there are 4 images on the Index Page and they are displayed
         homePageSteps.shouldReturnImagesIndexPage();
 
         // 7. Assert that there are 4 texts on the Index Page under icons and they have proper text
-        homePageSteps.shouldReturnIconTexts(Arrays.asList("To include good practices\n" +
-                        "and ideas from successful\n" +
-                        "EPAM project",
-                "To be flexible and\n" +
-                        "customizable", "To be multiplatform",
-                "Already have good base\n"+
-                        "(about 20 internal and\n" +
-                        "some external projects),\n" +
-                        "wish to get more…"));
+        homePageSteps.shouldReturnIconTexts(Stream.of(IconTexts.values())
+                .map(IconTexts::getText)
+                .collect(Collectors.toList()));
 
         // 8. Assert that there is the iframe with “Frame Button” exist
         homePageSteps.shouldReturnFrame();
@@ -69,8 +68,6 @@ public class Exercise1TestFailed extends BaseClass {
         homePageSteps.switchToOriginalPage();
 
         // 11. Assert that there are 5 items in the Left Section are displayed and they have proper text
-        // homePageAsserts.shouldReturnLeftSectionItems();
-        // homePageAsserts.shouldReturnLeftSectionItemsTexts();
         homePageSteps.shouldReturnLeftSectionItems();
         homePageSteps.shouldReturnLeftSectionItemsTexts();
 

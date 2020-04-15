@@ -1,12 +1,14 @@
 package hw5.steps;
 
+import hw3.enums.LeftSectionItems;
 import hw5.base.AbstractBaseClass;
 import io.qameta.allure.Step;
 import org.openqa.selenium.WebElement;
 import org.testng.asserts.SoftAssert;
 
-import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class HomePageSteps extends AbstractBaseClass {
 
@@ -89,9 +91,9 @@ public class HomePageSteps extends AbstractBaseClass {
 
     @Step("Texts should be displayed on the left section")
     public void shouldReturnLeftSectionItemsTexts() {
-        List<String> expectedLeftSectionItems = Arrays.asList("Home", "Contact form", "Service",
-                "Metals & Colors", "Elements packs");
-        sa.assertEquals(homePage.getLeftSection().getLeftSectionItemsTexts(), expectedLeftSectionItems);
+        sa.assertEquals(homePage.getLeftSection().getLeftSectionItemsTexts(), Stream.of(LeftSectionItems.values())
+                .map(LeftSectionItems::getItemText)
+                .collect(Collectors.toList()));
     }
 
     @Step("I click Service button")

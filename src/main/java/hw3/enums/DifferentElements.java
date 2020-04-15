@@ -5,7 +5,9 @@ public enum DifferentElements {
     WIND("Wind"),
     WATER("Water"),
     SELEN("Selen"),
-    YELLOW("Yellow");
+    YELLOW("Yellow"),
+    METAL("metal"),
+    COLORS("Colors");
 
     final String value;
 

@@ -6,6 +6,8 @@ import hw3.ex1.HomePageSteps;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import static hw3.enums.DifferentElements.*;
+
 public class Exercise2 extends BaseClass {
 
     private HomePageSteps homePageSteps;
@@ -43,27 +45,27 @@ public class Exercise2 extends BaseClass {
         homePageSteps.openDifferentElementsPage();
 
         // 6. Select checkboxes
-        differentElementsPageSteps.selectCheckbox("Water");
-        differentElementsPageSteps.selectCheckbox("Wind");
+        differentElementsPageSteps.selectCheckbox(WATER.getValue());
+        differentElementsPageSteps.selectCheckbox(WIND.getValue());
 
         // 7. Select radio
-        differentElementsPageSteps.selectRadioButton("Selen");
+        differentElementsPageSteps.selectRadioButton(SELEN.getValue());
 
         // 8. Select in dropdown
-        differentElementsPageSteps.selectDropdown("Yellow");
+        differentElementsPageSteps.selectDropdown(YELLOW.getValue());
 
         // 9.1 Assert that for each checkbox there is an individual log row
         // and value is corresponded to the status of checkbox
         differentElementsAsserts.shouldReturnSelectedCheckbox();
-        differentElementsAsserts.shouldReturnLogRowText("Water", "true");
-        differentElementsAsserts.shouldReturnLogRowText("Wind", "true");
+        differentElementsAsserts.shouldReturnLogRowText(WATER.getValue(), "true");
+        differentElementsAsserts.shouldReturnLogRowText(WIND.getValue(), "true");
 
         // 9.2 Assert that for radio button there is a log row and value is corresponded to the status of radio button
         differentElementsAsserts.shouldReturnSelectedRadioButton();
-        differentElementsAsserts.shouldReturnLogRowText("metal", "Selen");
+        differentElementsAsserts.shouldReturnLogRowText(METAL.getValue(), SELEN.getValue());
 
         // 9.3 Assert that for dropdown there is a log row and value is corresponded to the selected value
         differentElementsAsserts.shouldReturnSelectedDropdown();
-        differentElementsAsserts.shouldReturnLogRowText("Colors", "Yellow");
+        differentElementsAsserts.shouldReturnLogRowText(COLORS.getValue(), YELLOW.getValue());
     }
 }
