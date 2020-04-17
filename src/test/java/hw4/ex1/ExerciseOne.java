@@ -38,7 +38,7 @@ public class ExerciseOne extends BaseClass {
         // 4. Assert User name in the left-top side of screen that user is loggined
         assertEquals(homePage.getUserNameText(), "ROMAN IOVLEV");
 
-        // 5. Open through the header menu Service -> Table with pages
+        // 5. Open through the header menu Service -> Table with hwjdi.pages
         homePage.getHeaderSection().getServiceButton().click();
         homePage.getHeaderSection().getTableWithPages().click();
 
