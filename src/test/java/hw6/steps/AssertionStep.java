@@ -7,6 +7,7 @@ import io.cucumber.java.en.Then;
 import org.openqa.selenium.WebElement;
 
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 import static org.testng.Assert.assertEquals;
@@ -75,7 +76,20 @@ public class AssertionStep extends AbstractBaseStep {
 
     @And("User table should contain following values:")
     public void userTableShouldContainValues(List<UserTable> userTable) {
+        for (int i = 0; i < userTable.size(); i++) {
+            assertEquals(userTablePage.getWebElementText(userTablePage.getNumberType(), i),
+                    userTable.get(i).getNumber());
+            assertEquals(userTablePage.getWebElementText(userTablePage.getUsernames(), i),
+                    userTable.get(i).getUser());
+            assertEquals(userTablePage.getWebElementText(userTablePage
+                    .getDescription(), i).replaceAll("\n", " "),
+                    userTable.get(i).getDescription());
+        }
+    }
 
+    @DataTableType
+    public UserTable userTable(Map<String, String> user) {
+        return new UserTable(user.get("Number"), user.get("User"), user.get("Description"));
     }
 
     @And("droplist should contain values in column Type for user Roman")

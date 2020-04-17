@@ -24,24 +24,4 @@ public class UserTable {
         return description;
     }
 
-    public void setNumber(String number) {
-        this.number = number;
-    }
-
-    public void setUser(String user) {
-        this.user = user;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    @Override
-    public String toString() {
-        return "UserTable{" +
-                "number='" + number + '\'' +
-                ", user='" + user + '\'' +
-                ", description='" + description + '\'' +
-                '}';
-    }
 }
