@@ -1,12 +1,13 @@
 package hw6.steps;
 
-import io.cucumber.datatable.DataTable;
+import hw6.entities.UserTable;
+import io.cucumber.java.DataTableType;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import org.openqa.selenium.WebElement;
 
 import java.util.List;
-import java.util.Map;
+import java.util.stream.Collectors;
 
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
@@ -73,21 +74,8 @@ public class AssertionStep extends AbstractBaseStep {
     }
 
     @And("User table should contain following values:")
-    public void userTableShouldContainValues(DataTable dataTable) {
-        List<Map<String, String>> values = dataTable.asMaps(String.class, String.class);
-        for (int i = 0; i < 6; i++) {
+    public void userTableShouldContainValues(List<UserTable> userTable) {
 
-            if (userTablePage.getWebElementText(userTablePage.getNumberType(), i)
-                    .equals(values.get(i).get("Number"))) {
-
-                assertEquals(userTablePage.getWebElementText(userTablePage
-                        .getUsernames(), i), values.get(i).get("User"));
-
-                assertEquals(userTablePage.getWebElementText(userTablePage
-                                .getDescription(), i).replaceAll("\n", " "),
-                        values.get(i).get("Description"));
-            }
-        }
     }
 
     @And("droplist should contain values in column Type for user Roman")

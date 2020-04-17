@@ -20,7 +20,7 @@
         <assertj.version>3.15.0</assertj.version>
         <common-io.version>2.6</common-io.version>
         <selenide-version>5.5.0</selenide-version>
-        <cucumber.version>5.6.0 </cucumber.version>
+        <cucumber.version>5.6.0</cucumber.version>
         <allure.version>2.13.2</allure.version>
 
         <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
