@@ -1,12 +1,12 @@
-Test layer /src/test/java/hw4/ex1
-           /src/test/java/hw4/ex2
+Test layer /src/test/java/hw4/hw5.ex1
+           /src/test/java/hw4/hw5.ex2
 Business layer ? (part of test package)
-Core layer /src/test/java/hw4/base
+Core layer /src/test/java/hw4/hw5.base
            /src/main/java/hw4/pages
            /src/main/java/hw4/composite
            src/main/java/hw4/builder
 
-Test layer is implemented and located separately in the distinct package, but test hw6.steps maybe take out to another
+Test layer is implemented and located separately in the distinct package, but test hw5.steps maybe take out to another
 package in one java class. That would be part of the business layer.
 The core layer, including loading the driver, description of pages, are fully implemented.
 Configuration data (username and password) are stored in the property file.
