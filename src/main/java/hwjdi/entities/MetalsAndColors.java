@@ -1,20 +1,25 @@
 package hwjdi.entities;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
-import lombok.ToString;
+
+import java.util.Arrays;
 
 @Getter
 @Setter
-@ToString
-@AllArgsConstructor
 public class MetalsAndColors {
 
     private int[] summary;
     private String[] elements;
     private String color;
-    private String metal;
+    private String metals;
     private String[] vegetables;
 
+    @Override
+    public String toString() {
+        return String.format("Summary: %s\nElements: %s\nColor: %s\nMetal: %s\nVegetables: %s",
+                Arrays.stream(summary).sum(),
+        Arrays.toString(elements), color, metals,
+                Arrays.toString(vegetables));
+    }
 }
