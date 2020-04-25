@@ -1,4 +1,4 @@
-package hw3.voids;
+package hw6.pages;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -7,6 +7,8 @@ import org.openqa.selenium.support.FindBy;
 import java.util.List;
 
 public class HomePage extends AbstractPage {
+
+    private static final String URL = "https://jdi-testing.github.io/jdi-light/index.html";
 
     @FindBy(id = "user-icon")
     private WebElement userIcon;
@@ -29,14 +31,12 @@ public class HomePage extends AbstractPage {
     @FindBy(className = "benefit-txt")
     private List<WebElement> iconTexts;
 
-    @FindBy(id = "frame")
-    private WebElement iframe;
-
-    @FindBy(id = "frame-button")
-    private WebElement frameButton;
-
     public HomePage(WebDriver driver) {
         super(driver);
+    }
+
+    public void open() {
+        driver.get(URL);
     }
 
     public void login(final String username, final String password) {
@@ -49,37 +49,4 @@ public class HomePage extends AbstractPage {
     public String getUserNameText() {
         return userNameText.getText();
     }
-
-    public String getTitle() {
-        return driver.getTitle();
-    }
-
-    public List<WebElement> getImagesIndexPage() {
-        return this.imagesIndexPage;
-    }
-
-    public List<String> getIconText() {
-        List<String> iconItemsTexts = new ArrayList<>();
-        for (WebElement element : iconTexts) {
-            iconItemsTexts.add(element.getText().replaceAll("\n", " "));
-        }
-        return iconItemsTexts;
-    }
-
-    public WebElement getFrame() {
-        return this.iframe;
-    }
-
-    public void switchToFrame() {
-        driver.switchTo().frame(iframe);
-    }
-
-    public WebElement  getFrameButton() {
-        return this.frameButton;
-    }
-
-    public void switchToOriginalPage() {
-        driver.switchTo().defaultContent();
-    }
-
 }
