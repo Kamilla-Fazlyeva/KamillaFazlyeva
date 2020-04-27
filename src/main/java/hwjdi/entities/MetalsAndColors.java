@@ -20,6 +20,6 @@ public class MetalsAndColors {
         return String.format("Summary: %s\nElements: %s\nColor: %s\nMetal: %s\nVegetables: %s",
                 Arrays.stream(summary).sum(),
                 Arrays.toString(elements), color, metals,
-                Arrays.toString(vegetables));
+                Arrays.toString(vegetables)).replaceAll("\\[|\\]", "");
     }
 }

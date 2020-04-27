@@ -19,7 +19,7 @@ public class MetalsAndColorsJdiTest extends BaseClass {
         JdiSite.metalsAndColorsPage.setWebElements(metalsAndColors);
 
         assertEquals(JdiSite.metalsAndColorsPage.getResults(),
-                metalsAndColors.toString().replaceAll("\\[|\\]", ""));
+                metalsAndColors.toString());
 
         JdiSite.metalsAndColorsPage.logout();
     }

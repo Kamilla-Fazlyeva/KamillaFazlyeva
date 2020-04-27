@@ -18,8 +18,6 @@ public class UserProperties extends Properties{
 
             try (InputStream input = new FileInputStream("src/main/resources/hwjdi/config.properties")) {
                 properties.load(input);
-            } catch (FileNotFoundException e) {
-                e.printStackTrace();
             } catch (IOException e) {
                 e.printStackTrace();
             }
