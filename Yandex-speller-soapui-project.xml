@@ -221,7 +221,7 @@ testRunner.testCase.setPropertyValue("text", text2);</script></con:config></con:
       </spel:CheckTextRequest>\r
    </soapenv:Body>\r
 </soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="5781afb1-687b-4438-91c0-52799cbf8554"/><con:assertion type="Simple Contains" id="9658b13f-e9c4-480a-b2ff-facf510633c2" name="Contains"><con:configuration><token>${#Project#message}</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="groovy" name="SetValues" id="e3d80928-ac2c-4988-b3c3-60f343bb07d2"><con:settings/><con:config><script>def count =  Integer.parseInt(testRunner.testCase.getPropertyValue("count"));
-def values = Arrays.asList("text123", "текст123", "digit555s");
+def values = Arrays.asList("text123", "текс123т", "digit555s");
 def lang = Arrays.asList("en", "ru", "en");
 if (count &lt; values.size()) {
    testRunner.testCase.setPropertyValue("lang", lang[count]);
@@ -229,7 +229,7 @@ if (count &lt; values.size()) {
    testRunner.gotoStepByName("DigitsText");
    count++;
    testRunner.testCase.setPropertyValue("count", count.toString());
-}</script></con:config></con:testStep><con:tearDownScript>testRunner.testCase.setPropertyValue("lang", "");
+}</script></con:config></con:testStep><con:setupScript>testRunner.testCase.setPropertyValue("text", "prop123erty");</con:setupScript><con:tearDownScript>testRunner.testCase.setPropertyValue("lang", "");
 testRunner.testCase.setPropertyValue("count", "0");</con:tearDownScript><con:properties><con:property><con:name>lang</con:name><con:value/></con:property><con:property><con:name>text</con:name><con:value>digit555s</con:value></con:property><con:property><con:name>count</con:name><con:value>0</con:value></con:property></con:properties></con:testCase><con:testCase id="a0e06fe1-6086-4ad7-8787-e75650f1e513" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="DifferentOptions" searchProperties="true"><con:settings/><con:testStep type="request" name="Options" id="186705f8-635b-4c47-ac39-4aaafab61b8a"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>SpellServiceSoap</con:interface><con:operation>checkText</con:operation><con:request name="Options" id="98eab0bd-1659-4634-84da-ad5ce5b80ba8"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://speller.yandex.net/services/spellservice</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:spel="http://speller.yandex.net/services/spellservice">\r
    <soapenv:Header/>\r
    <soapenv:Body>\r
